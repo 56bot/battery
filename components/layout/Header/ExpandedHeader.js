@@ -47,12 +47,13 @@ const NavText = ({ text, title, hoveringOnNavItem }) => {
           width: 20%;
           opacity: 0;
           transform: translateX(20px);
-          transition: 0.3s ease-out opacity, 0.3s ease-out transform;
+          transition: 0.1s ease-out opacity, 0.1s ease-out transform;
         }
 
         .selected-true {
           opacity: 1;
           transform: translateX(0);
+          transition: 0.3s ease-out opacity, 0.3s ease-out transform;
         }
 
         h2 {

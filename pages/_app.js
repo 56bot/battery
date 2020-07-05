@@ -25,27 +25,43 @@ export default class MyApp extends App {
     const { Component, pageProps, router } = this.props;
     return (
       <Layout>
-        <PageTransition timeout={300} classNames="page-transition">
+        <PageTransition
+          timeout={300}
+          skipInitialTransition
+          classNames="page-transition"
+        >
           <Component {...pageProps} key={router.route} />
         </PageTransition>
         <style jsx global>{`
           .page-transition-enter {
-            opacity: 0;
-            position: absolute;
+            transform: translateY(100px);
+            position: fixed;
             top: 0;
-            left: 0;
             width: 100%;
+            left: 0;
+            z-index: 2;
           }
           .page-transition-enter-active {
-            opacity: 1;
-            transition: opacity ease-out 300ms;
+            transform: translateY(0vh);
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            left: 0;
+            z-index: 2;
+            will-change: transform;
+            transition: transform ease-out 300ms;
           }
           .page-transition-exit {
             opacity: 1;
+            top: 0vh;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity ease-out 300ms;
           }
           .page-transition-exit-active {
             opacity: 0;
-            transition: opacity ease-out 300ms;
           }
         `}</style>
       </Layout>
