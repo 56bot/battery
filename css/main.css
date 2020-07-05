@@ -1,0 +1,129 @@
+html {
+  --grey: #2d2d2d;
+  --black: #000;
+  --white: #fff;
+  --sans: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
+  --gutter: 24px;
+  --gutter-medium: 32px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -moz-font-feature-settings: "kern" 1;
+  -ms-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
+  background-color: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+video {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.bgc-black {
+  background-color: var(--black);
+}
+.bgc-grey {
+  background-color: var(--grey);
+}
+.bgc-white {
+  background-color: var(--white);
+}
+
+.c-black {
+  opacity: 0.8;
+  color: var(--black);
+}
+.c-grey {
+  color: var(--grey);
+}
+.c-white {
+  color: var(--white);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+h1,
+.fsA {
+  font-size: 60px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2,
+.fsB {
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h2.nav-item {
+  font-size: 30px;
+}
+
+h3,
+.fsC {
+  font-size: 26px;
+  letter-spacing: -0.02em;
+}
+
+p,
+.fsD {
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.fsE {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.x {
+  display: flex;
+}
+.xw {
+  flex-wrap: wrap;
+}
+
+.xac {
+  align-items: center;
+}
+.xjb {
+  justify-content: space-between;
+}
+
+.tac {
+  text-align: center;
+}
+
+.curp {
+  cursor: pointer;
+}
+
+.c12 {
+  width: 100%;
+}
+
+.psr {
+  position: relative;
+}
