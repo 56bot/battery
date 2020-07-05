@@ -89,10 +89,19 @@ h3,
 }
 
 p,
-.fsD {
+.fsD,
+.main-text li {
   font-size: 18px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   line-height: 1.4;
+}
+
+.main-text ul {
+  padding-left: 20px;
+}
+.main-text li {
+  margin-bottom: 25px;
+  padding-left: 15px;
 }
 
 .fsE {
@@ -137,6 +146,9 @@ p,
 .main-text p {
   margin-bottom: var(--gutter-medium);
 }
+.main-text h2 {
+  margin-bottom: var(--gutter-medium);
+}
 
 .c12 {
   width: 100%;
@@ -151,6 +163,9 @@ p,
 }
 .mw-medium {
   max-width: 1300px;
+}
+.mw-small {
+  max-width: 850px;
 }
 
 .image {

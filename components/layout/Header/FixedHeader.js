@@ -28,8 +28,12 @@ const FixedHeader = ({ setHeaderExpanded }) => {
           left: 0;
         }
 
+        .nav-opener:active img {
+          transform: scale(0.8);
+        }
+
         .nav-opener img {
-          transition: 0.3s ease-out opacity;
+          transition: 0.3s ease-out opacity, 0.3s ease-out transform;
         }
 
         .nav-opener:hover img {

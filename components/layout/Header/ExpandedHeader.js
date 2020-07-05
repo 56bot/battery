@@ -131,7 +131,11 @@ const CloseButton = ({ setHeaderExpanded }) => {
           width: 46px;
           top: -5px;
           right: -25px;
-          transition: 0.3s ease-out opacity;
+          transition: 0.3s ease-out opacity, 0.3s ease-out transform;
+        }
+
+        .close:active {
+          transform: scale(0.86);
         }
         .close:hover {
           opacity: 0.6;

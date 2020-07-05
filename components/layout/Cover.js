@@ -45,7 +45,7 @@ const Cover = ({ meta_info }) => {
           z-index: 2;
           padding-left: var(--gutter-medium);
           left: 0;
-          max-width: 800px;
+          width: 80%;
         }
 
         .cover::after {

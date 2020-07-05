@@ -1,6 +1,6 @@
 import Link from "next/link";
 export const CosmeticLink = ({ children }) => (
-  <div>
+  <div className="fsE">
     <span className="children">{children}</span>
     <span className="arr">{`→`}</span>
 

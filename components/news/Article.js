@@ -8,13 +8,12 @@ import FeedItem from "components/feed/FeedItem";
 
 const ArticleText = ({ text }) => {
   return (
-    <section className="main-text">
+    <section className="main-text mw-small">
       <span dangerouslySetInnerHTML={{ __html: text }} />
 
       <style jsx>{`
         .main-text {
           padding: calc(var(--gutter-large) / 2) var(--gutter-medium);
-          max-width: 800px;
           margin: auto;
         }
       `}</style>
