@@ -22,6 +22,8 @@ const FixedHeader = ({ setHeaderExpanded }) => {
           padding: var(--gutter) var(--gutter-medium);
           filter: invert(1);
           position: absolute;
+          width: 100vw;
+          z-index: 4;
           top: 0;
           left: 0;
         }

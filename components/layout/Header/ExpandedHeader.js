@@ -190,6 +190,9 @@ const ExpandedHeader = ({ setHeaderExpanded, expanded }) => {
           top: 0;
           left: 0;
           transition: 0.3s ease-in-out opacity, 0.3s ease-in-out visibility;
+          z-index: 5;
+          width: 100vw;
+          overflow: hidden;
         }
         #expanded-header.header-expanded-true {
           opacity: 1;
