@@ -5,6 +5,7 @@ html {
   --sans: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
   --gutter: 24px;
   --gutter-medium: 32px;
+  --gutter-large: 200px;
 }
 
 body {

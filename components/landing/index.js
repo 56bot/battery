@@ -1,3 +1,5 @@
+import animateScrollTo from "animated-scroll-to";
+
 import LandingText from "./LandingText";
 import FeedItem from "components/feed/FeedItem";
 
@@ -20,6 +22,38 @@ export const feedHandler = (item, i) => {
   }
 };
 
+const BackToTop = () => {
+  const scrollToTop = () => {
+    animateScrollTo(0, {
+      speed: 300,
+    });
+  };
+
+  return (
+    <div className="c12 tac ">
+      <h2 onClick={scrollToTop} className="curp">
+        Back to top
+      </h2>
+
+      <style jsx>{`
+        div {
+          padding: var(--gutter-large);
+          margin-bottom: var(--gutter-medium);
+        }
+
+        h2 {
+          opacity: 0.5;
+          transition: 0.3s ease-out opacity;
+        }
+
+        h2:hover {
+          opacity: 0.8;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 const HomepageFeed = ({ content }) => {
   return (
     <section className="c12 x xw xjb" id="homepage-feed">
@@ -32,6 +66,7 @@ const Homepage = ({ page }) => {
   return (
     <div id="page--homepage">
       <HomepageFeed content={page.acf.content} />
+      <BackToTop />
     </div>
   );
 };
