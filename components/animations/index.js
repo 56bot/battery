@@ -3,7 +3,7 @@ import { InView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
 export const SlideUp = ({ children }) => (
-  <InView>
+  <InView triggerOnce>
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
@@ -28,7 +28,7 @@ export const SlideUp = ({ children }) => (
 );
 
 export const ZoomOut = ({ children }) => (
-  <InView>
+  <InView triggerOnce>
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
