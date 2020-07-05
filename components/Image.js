@@ -1,5 +1,26 @@
 import { ZoomOut } from "components/animations";
 
+export const RawImage = ({ url, alt, sizes, height, width }) => {
+  return (
+    <>
+      <ZoomOut attachToParent>
+        <img height={height} width={width} loading="lazy" src={url} alt={alt} />
+      </ZoomOut>
+
+      <style jsx>{`
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      `}</style>
+    </>
+  );
+};
+
 const Image = ({
   url,
   sizes,
@@ -36,19 +57,14 @@ const Image = ({
               overflow: hidden;
             }
 
-            .attached-to-parent figure {
-              position: static;
-              height: 100%;
-              width: 100%;
-            }
-
             img {
               position: absolute;
               top: 0;
               left: 0%;
               height: 100%;
               width: 100%;
-              object-fit: cover;
+              object-position: center;
+              object-fit: contain;
             }
           `}</style>
         </figure>

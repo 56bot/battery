@@ -2,7 +2,6 @@ import Link from "next/link";
 
 const CareerLink = ({ post_name, acf, post_title }) => {
   const { meta_info } = acf;
-  console.log(acf, "acf");
   return (
     <div>
       <Link href="/careers/[career]" as={`/careers/${post_name}`} passHref>

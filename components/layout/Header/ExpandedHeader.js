@@ -61,7 +61,7 @@ const NavText = ({ text, title, hoveringOnNavItem }) => {
           top: 50%;
           left: 0;
           width: 40vw;
-          transform: translateY(-50%);
+          transform: translateY(-60%);
         }
       `}</style>
     </div>

@@ -27,12 +27,12 @@ export const SlideUp = ({ children }) => (
   </InView>
 );
 
-export const ZoomOut = ({ children }) => (
+export const ZoomOut = ({ children, attachToParent }) => (
   <InView triggerOnce>
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
-          initial={{ opacity: 0, scale: 1.2, y: "4%" }}
+          initial={{ opacity: 0, scale: 1.1, y: "-5%" }}
           transition={{
             type: "spring",
             mass: 0.8,
@@ -42,10 +42,11 @@ export const ZoomOut = ({ children }) => (
             stiffness: 100,
           }}
           animate={{
-            scale: inView ? 1.1 : 1.2,
-            y: inView ? "0%" : "4%",
+            scale: inView ? 1.01 : 1.1,
+            y: inView ? "0%" : "-5%",
             opacity: inView ? 1 : 0,
           }}
+          className={`zoom-out-el-${attachToParent}`}
         >
           {children}
         </motion.div>
@@ -54,7 +55,15 @@ export const ZoomOut = ({ children }) => (
           span {
             position: static;
             display: block;
-            height: 100;
+            height: 100%;
+            width: 100%;
+          }
+        `}</style>
+
+        <style jsx global>{`
+          .zoom-out-el-true {
+            position: absolute;
+            height: 100%;
             width: 100%;
           }
         `}</style>

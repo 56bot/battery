@@ -4,7 +4,7 @@ import { getRelatedPosts } from "api/wp";
 
 import Cover from "components/layout/Cover";
 import FeedItem from "components/feed/FeedItem";
-
+import Content from "./Content";
 import { BottomShareBar } from "components/news/Article";
 
 const RelatedArticles = ({ posts }) => {
@@ -56,6 +56,8 @@ const RelatedArticles = ({ posts }) => {
 };
 
 const ProjectArticle = ({ acf, id }) => {
+  console.log(acf, "ACF");
+
   const [relatedArticles, setRelatedArticles] = useState([]);
 
   useEffect(() => {
@@ -81,6 +83,8 @@ const ProjectArticle = ({ acf, id }) => {
   return (
     <article key={id}>
       <Cover key={id + "cover"} meta_info={acf.meta_info} />
+
+      <Content content={acf.content} />
 
       <BottomShareBar />
 
