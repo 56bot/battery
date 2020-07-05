@@ -1,12 +1,28 @@
-const Image = ({ url, sizes, height, width, alt }) => {
+const Image = ({
+  url,
+  sizes,
+  height,
+  width,
+  alt,
+  attachedToParent = false,
+}) => {
   return (
-    <figure style={{ paddingBottom: (height / width) * 100 + "%" }}>
+    <figure
+      className={`attached-to-parent-${attachedToParent}`}
+      style={{ paddingBottom: (height / width) * 100 + "%" }}
+    >
       <img height={height} width={width} loading="lazy" src={url} alt={alt} />
 
       <style jsx>{`
         figure {
           height: 0;
           position: relative;
+          width: 100%;
+        }
+
+        .attached-to-parent figure {
+          position: static;
+          height: 100%;
           width: 100%;
         }
 

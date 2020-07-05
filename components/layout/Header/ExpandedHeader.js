@@ -66,13 +66,23 @@ const NavText = ({ text, title, hoveringOnNavItem }) => {
   );
 };
 
-const NavLink = ({ title, link, hoveringOnNavItem, setHoveringOnNavItem }) => {
+const NavLink = ({
+  title,
+  link,
+  hoveringOnNavItem,
+  setHoveringOnNavItem,
+  setHeaderExpanded,
+}) => {
   const handleMouseEnter = () => {
     setHoveringOnNavItem(title);
   };
 
   const handleMouseLeave = () => {
     setHoveringOnNavItem(false);
+  };
+
+  const handleMouseClick = () => {
+    setHeaderExpanded(false);
   };
 
   let selected = null;
@@ -84,6 +94,7 @@ const NavLink = ({ title, link, hoveringOnNavItem, setHoveringOnNavItem }) => {
     <Link href={link} passHref>
       <a
         className={`selected-${selected}`}
+        onClick={handleMouseClick}
         onMouseLeave={handleMouseLeave}
         onMouseEnter={handleMouseEnter}
       >
@@ -141,6 +152,7 @@ const ExpandedHeader = ({ setHeaderExpanded, expanded }) => {
           <NavLink
             hoveringOnNavItem={hoveringOnNavItem}
             setHoveringOnNavItem={setHoveringOnNavItem}
+            setHeaderExpanded={setHeaderExpanded}
             {...item}
             key={item.title}
           />

@@ -15,7 +15,7 @@ const FeedItem = ({ acf, post_type }) => {
       className={`feed-item layout-${meta_info.feed_layout} options_50-${meta_info.layout_50_options} type_50-overlay-${meta_info.layout_50_type}`}
     >
       <div className="image">
-        <Image {...image} />
+        <Image attachedToParent={meta_info.feed_layout === "full"} {...image} />
       </div>
 
       <div className="text">
@@ -32,6 +32,13 @@ const FeedItem = ({ acf, post_type }) => {
       <style jsx global>{``}</style>
 
       <style jsx>{`
+        .feed-item.layout-full {
+          height: 0;
+          padding-bottom: 40%;
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
         .layout-full .text,
         .layout-fifty.type_50-overlay-true .text {
           position: absolute;

@@ -12,8 +12,8 @@ const LandingText = ({ text, learn_more_link }) => {
 
       <style jsx>{`
         .landing-text {
-          margin-top: 50px;
-          margin-bottom: 50px;
+          margin-top: var(--gutter);
+          margin-bottom: var(--gutter);
         }
 
         h2 {
