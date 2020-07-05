@@ -20,8 +20,8 @@ const FixedHeader = ({ setHeaderExpanded }) => {
       <style jsx>{`
         #fixed-header {
           padding: var(--gutter) var(--gutter-medium);
-          filter: invert(1);
-          position: absolute;
+          mix-blend-mode: difference;
+          position: fixed;
           width: 100vw;
           z-index: 4;
           top: 0;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -11,6 +12,29 @@ const Layout = ({ children }) => {
   return (
     <main>
       <Header />
+
+      <Head>
+        <title>
+          Battery Los Angeles - An Ad Age Agency of the Year | One of the
+          Leading Advertising Agencies in Los Angeles, CA | Top Creative Agency
+          Near Me | Game Marketing in LA | Sports Advertising in Hollywood | Ad
+          Agencies Specializing in Financial Services
+        </title>
+        Battery Los Angeles - An Ad Age Agency of the Year | One of the Leading
+        Advertising Agencies in Los Angeles, CA | Top Creative Agency Near Me |
+        Game Marketing in LA | Sports Advertising in Hollywood | Ad Agencies
+        Specializing in Financial ServicesBattery Los Angeles - An Ad Age Agency
+        of the Year | One of the Leading Advertising Agencies in Los Angeles, CA
+        | Top Creative Agency Near Me | Game Marketing in LA | Sports
+        Advertising in Hollywood | Ad Agencies Specializing in Financial
+        Services
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="https://batteryagency.com/wp-content/uploads/fbrfg/favicon-32x32.png"
+        ></link>
+      </Head>
 
       <div style={mainStyle} id="content">
         {children}

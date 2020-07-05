@@ -32,7 +32,7 @@ export const ZoomOut = ({ children }) => (
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
-          initial={{ opacity: 0, scale: 1.2, y: "10%" }}
+          initial={{ opacity: 0, scale: 1.2, y: "4%" }}
           transition={{
             type: "spring",
             mass: 0.8,
@@ -42,8 +42,8 @@ export const ZoomOut = ({ children }) => (
             stiffness: 100,
           }}
           animate={{
-            scale: inView ? 1 : 1.2,
-            y: inView ? "0%" : "10%",
+            scale: inView ? 1.1 : 1.2,
+            y: inView ? "0%" : "4%",
             opacity: inView ? 1 : 0,
           }}
         >

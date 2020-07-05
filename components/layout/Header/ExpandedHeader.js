@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import { FooterNav } from "../Footer";
 
@@ -143,42 +144,53 @@ const ExpandedHeader = ({ setHeaderExpanded, expanded }) => {
   const [hoveringOnNavItem, setHoveringOnNavItem] = useState(false);
 
   return (
-    <section
+    <motion.div
       id="expanded-header"
+      initial={{ opacity: 1, height: 0, y: -30 }}
+      transition={{
+        type: "spring",
+        mass: 0.8,
+        damping: 100,
+        delay: 0.2,
+        stiffness: 200,
+      }}
+      animate={{
+        height: expanded ? "auto" : 0,
+        y: expanded ? 0 : -30,
+      }}
       className={`c12 bgc-white header-expanded-${expanded} hovering-${hoveringOnNavItem}`}
     >
-      <div id="top-bar" className="x xw xjb psr">
-        {navItems.map((item) => (
-          <NavLink
-            hoveringOnNavItem={hoveringOnNavItem}
-            setHoveringOnNavItem={setHoveringOnNavItem}
-            setHeaderExpanded={setHeaderExpanded}
-            {...item}
-            key={item.title}
-          />
-        ))}
+      <div className="header-wrapper">
+        <div id="top-bar" className="x xw xjb psr">
+          {navItems.map((item) => (
+            <NavLink
+              hoveringOnNavItem={hoveringOnNavItem}
+              setHoveringOnNavItem={setHoveringOnNavItem}
+              setHeaderExpanded={setHeaderExpanded}
+              {...item}
+              key={item.title}
+            />
+          ))}
 
-        <CloseButton setHeaderExpanded={setHeaderExpanded} />
+          <CloseButton setHeaderExpanded={setHeaderExpanded} />
+        </div>
+
+        <div id="middle" className="x xw xjb">
+          {navItems.map((item) => (
+            <NavText
+              hoveringOnNavItem={hoveringOnNavItem}
+              {...item}
+              key={item.title}
+            />
+          ))}
+        </div>
+
+        <div id="bottom-bar">
+          <FooterNav black />
+        </div>
       </div>
 
-      <div id="middle" className="x xw xjb">
-        {navItems.map((item) => (
-          <NavText
-            hoveringOnNavItem={hoveringOnNavItem}
-            {...item}
-            key={item.title}
-          />
-        ))}
-      </div>
-
-      <div id="bottom-bar">
-        <FooterNav black />
-      </div>
-
-      <style jsx>{`
-        section {
-        }
-
+      <style jsx global>{`
         #middle {
           height: 320px;
         }
@@ -194,24 +206,20 @@ const ExpandedHeader = ({ setHeaderExpanded, expanded }) => {
           opacity: 0.5;
         }
 
-        #expanded-header {
-          opacity: 0;
-          visibility: hidden;
+        .header-wrapper {
           padding: var(--gutter) calc(var(--gutter) * 2);
-          position: absolute;
+          width: 100%;
+        }
+        #expanded-header {
+          position: fixed;
           top: 0;
           left: 0;
-          transition: 0.3s ease-in-out opacity, 0.3s ease-in-out visibility;
           z-index: 5;
           width: 100vw;
           overflow: hidden;
         }
-        #expanded-header.header-expanded-true {
-          opacity: 1;
-          visibility: visible;
-        }
       `}</style>
-    </section>
+    </motion.div>
   );
 };
 
