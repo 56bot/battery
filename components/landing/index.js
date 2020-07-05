@@ -7,7 +7,13 @@ export const feedHandler = (item, i) => {
       return <LandingText key={i} {...item} />;
     case "post_project":
       if (item.item && item.item.length > 0)
-        return <FeedItem key={i} acf={item.item[0].acf} />;
+        return (
+          <FeedItem
+            key={i}
+            post_type={item.item[0].post_type}
+            acf={item.item[0].acf}
+          />
+        );
       else return null;
     default:
       return null;

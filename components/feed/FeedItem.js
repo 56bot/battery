@@ -3,9 +3,12 @@ import Link from "next/link";
 import Image from "components/Image";
 import { CosmeticLink } from "components/Link";
 
-const FeedItem = ({ acf }) => {
+const FeedItem = ({ acf, post_type }) => {
   const { meta_info } = acf;
-  let image = meta_info.thumbnail_image;
+
+  let image;
+  if (meta_info.thumbnail_image) image = meta_info.thumbnail_image;
+  else if (meta_info.cover_image) image = meta_info.cover_image;
 
   return (
     <section
@@ -23,6 +26,7 @@ const FeedItem = ({ acf }) => {
           <h2 className="margin-bottom">{meta_info.title}</h2>
         )}
         <p className="fsE">{meta_info.description}</p>
+        {post_type === "news" && <CosmeticLink>Read More</CosmeticLink>}
       </div>
 
       <style jsx global>{``}</style>
@@ -71,7 +75,7 @@ const FeedItem = ({ acf }) => {
           z-index: 2;
         }
         .layout-full .text {
-          max-width: unset;
+          max-width: 80%;
         }
 
         .layout-centred {
@@ -84,6 +88,16 @@ const FeedItem = ({ acf }) => {
           width: 50%;
         }
 
+        .layout-fifty.options_50-centred .image,
+        .layout-fifty.options_50-centred .text {
+          width: 80%;
+          margin: auto;
+          max-width: unset;
+        }
+
+        .layout-fifty.options_50-centred .text {
+          padding-right: 20%;
+        }
         .layout-centred .text {
           width: 50%;
           padding-left: var(--gutter-medium);

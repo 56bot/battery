@@ -1031,6 +1031,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
+"@types/node@^13.13.1":
+  version "13.13.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.12.tgz#9c72e865380a7dc99999ea0ef20fc9635b503d20"
+  integrity sha512-zWz/8NEPxoXNT9YyF2osqyA9WjssZukYpgI4UYZpOjcyqwIUqWGkcCionaEb9Ki+FULyPyvNFpg/329Kd2/pbw==
+
 "@types/q@^1.5.1":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
@@ -1247,6 +1252,13 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+animated-scroll-to@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/animated-scroll-to/-/animated-scroll-to-2.0.10.tgz#d7b81f54a139b3005cdc66e432a12652d4a6dd9e"
+  integrity sha512-h3Ccs4u/17sCoBJ/ppO2RkhzcMsMyqIiy5wrv06OQHAJ0vUWXC9gRYeNxDXi8GqNU1YYFNotm98ZuJy8W/Z2SA==
+  dependencies:
+    "@types/node" "^13.13.1"
 
 anser@1.4.9:
   version "1.4.9"
