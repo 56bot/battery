@@ -1,4 +1,3 @@
-import Link from "next/link";
 import LinkButton from "components/Link";
 
 const LandingText = ({ text, learn_more_link }) => {
@@ -15,6 +14,10 @@ const LandingText = ({ text, learn_more_link }) => {
         .landing-text {
           margin-top: 50px;
           margin-bottom: 50px;
+        }
+
+        h2 {
+          margin-bottom: calc(var(--gutter) / 1.4);
         }
 
         .text {
