@@ -92,6 +92,7 @@ p,
 .fsD {
   font-size: 18px;
   letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 .fsE {
@@ -127,4 +128,31 @@ p,
 
 .psr {
   position: relative;
+}
+
+.margin-bottom {
+  margin-bottom: calc(var(--gutter-medium) / 3);
+}
+
+.main-text p {
+  margin-bottom: var(--gutter-medium);
+}
+
+.c12 {
+  width: 100%;
+}
+.c6 {
+  width: 50%;
+}
+
+.mxa {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mw-medium {
+  max-width: 1300px;
+}
+
+.image {
+  overflow: hidden;
 }

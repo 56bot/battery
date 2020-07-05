@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 export const CosmeticLink = ({ children }) => (
   <div>
     <span className="children">{children}</span>

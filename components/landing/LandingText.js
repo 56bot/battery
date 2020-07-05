@@ -1,19 +1,25 @@
 import LinkButton from "components/Link";
 
+import { SlideUp } from "components/animations";
+
 const LandingText = ({ text, learn_more_link }) => {
   return (
     <section className="landing-text c12">
       <div className="text">
-        <h2>{text}</h2>
-        {learn_more_link && learn_more_link != "" && (
-          <LinkButton href={learn_more_link}>Learn More</LinkButton>
-        )}
+        <SlideUp>
+          <>
+            <h2>{text}</h2>
+            {learn_more_link && learn_more_link != "" && (
+              <LinkButton href={learn_more_link}>Learn More</LinkButton>
+            )}
+          </>
+        </SlideUp>
       </div>
 
       <style jsx>{`
         .landing-text {
-          margin-top: var(--gutter);
-          margin-bottom: var(--gutter);
+          margin-top: calc(var(--gutter-medium) * 2);
+          margin-bottom: calc(var(--gutter-medium) * 2);
         }
 
         h2 {

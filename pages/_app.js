@@ -2,6 +2,8 @@ import "../css/reset.css";
 import "../css/fonts.css";
 import "../css/main.css";
 
+import "intersection-observer";
+
 import Layout from "components/layout";
 
 import App, { Container } from "next/app";
@@ -29,6 +31,10 @@ export default class MyApp extends App {
         <style jsx global>{`
           .page-transition-enter {
             opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
           }
           .page-transition-enter-active {
             opacity: 1;

@@ -20,11 +20,11 @@ export const makeGenericRequest = async (route) => {
 
 export const getRelatedPosts = async (type, id) => {
   try {
-    const req = await fetch(`${RELATED_BASE}/related/${type}/${id}`);
+    const req = await fetch(`${API_BASE}/related/${type}/${id}`);
     const json = await req.json();
 
     return {
-      ...json,
+      results: json,
     };
   } catch (e) {
     return {

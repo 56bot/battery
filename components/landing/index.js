@@ -4,6 +4,8 @@ import LandingText from "./LandingText";
 import FeedItem from "components/feed/FeedItem";
 
 export const feedHandler = (item, i) => {
+  console.log(item, "ITEM");
+
   switch (item.row_type) {
     case "text":
       return <LandingText key={i} {...item} />;
@@ -11,6 +13,7 @@ export const feedHandler = (item, i) => {
       if (item.item && item.item.length > 0)
         return (
           <FeedItem
+            slug={item.item[0].post_name}
             key={i}
             post_type={item.item[0].post_type}
             acf={item.item[0].acf}
