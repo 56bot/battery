@@ -8,6 +8,8 @@ import FeedItem from "components/feed/FeedItem";
 import { BottomShareBar } from "components/news/Article";
 
 const RelatedArticles = ({ posts }) => {
+  if (!posts || posts.length <= 0) return false;
+
   return (
     <section className="related-project-post">
       <section className="x xw">
@@ -60,10 +62,13 @@ const ProjectArticle = ({ acf, id }) => {
     const abortController = new AbortController();
 
     const fetchData = async () => {
-      const posts = await getRelatedPosts("projects", id);
-      console.log(posts, "Related ");
+      try {
+        const posts = await getRelatedPosts("projects", id);
 
-      setRelatedArticles(posts.results);
+        setRelatedArticles(posts.results);
+      } catch (e) {
+        console.log(e);
+      }
     };
 
     fetchData();
@@ -75,11 +80,16 @@ const ProjectArticle = ({ acf, id }) => {
 
   return (
     <article key={id}>
-      <Cover key={id} meta_info={acf.meta_info} />
+      <Cover key={id + "cover"} meta_info={acf.meta_info} />
 
       <BottomShareBar />
 
-      {relatedArticles && <RelatedArticles key={id} posts={relatedArticles} />}
+      {relatedArticles && (
+        <RelatedArticles
+          key={id + "related-articles"}
+          posts={relatedArticles}
+        />
+      )}
     </article>
   );
 };

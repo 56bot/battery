@@ -4,8 +4,6 @@ import LandingText from "./LandingText";
 import FeedItem from "components/feed/FeedItem";
 
 export const feedHandler = (item, i) => {
-  console.log(item, "ITEM");
-
   switch (item.row_type) {
     case "text":
       return <LandingText key={i} {...item} />;
