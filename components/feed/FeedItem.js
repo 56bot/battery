@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Image from "components/Image";
+import Image, { RawImage } from "components/Image";
 import { CosmeticLink } from "components/Link";
 import { SlideUp } from "components/animations";
 
@@ -28,11 +28,12 @@ const FeedItem = ({ acf, post_type, slug }) => {
       <a
         className={`feed-item layout-${meta_info.feed_layout} options_50-${meta_info.layout_50_options} type_50-overlay-${meta_info.layout_50_type}`}
       >
-        <div className="image">
-          <Image
-            attachedToParent={meta_info.feed_layout === "full"}
-            {...image}
-          />
+        <div className="image bgc-grey">
+          {meta_info.feed_layout === "full" ? (
+            <RawImage {...image} />
+          ) : (
+            <Image {...image} />
+          )}
         </div>
 
         <div className="text">
@@ -55,10 +56,17 @@ const FeedItem = ({ acf, post_type, slug }) => {
         <style jsx>{`
           .feed-item.layout-full {
             height: 0;
+            background-color: var(--grey);
             padding-bottom: 40%;
             width: 100%;
             overflow: hidden;
             position: relative;
+            display: block;
+          }
+
+          .image {
+            height: 100%;
+            width: 100%;
           }
           .layout-full .text,
           .layout-fifty.type_50-overlay-true .text {
@@ -113,15 +121,15 @@ const FeedItem = ({ acf, post_type, slug }) => {
             width: 50%;
           }
 
-          .layout-fifty.options_50-centred .image,
-          .layout-fifty.options_50-centred .text {
-            width: 80%;
-            margin: auto;
-            max-width: unset;
+          .layout-fifty.options_50-centred {
+            flex-grow: 1;
           }
 
+          .layout-fifty.options_50-centred .image,
           .layout-fifty.options_50-centred .text {
-            padding-right: 20%;
+            width: 45vw;
+            margin: auto;
+            max-width: unset;
           }
           .layout-centred .text {
             width: 50%;
@@ -166,6 +174,22 @@ const FeedItem = ({ acf, post_type, slug }) => {
 
           .layout-fifty.type_50-overlay-true {
             width: 44%;
+          }
+        `}</style>
+
+        <style jsx global>{`
+          #page--news
+            .layout-fifty.options_50-right_flush.type_50-overlay-false,
+          #page--news
+            .layout-fifty.options_50-right_margin.type_50-overlay-false {
+            padding: var(--gutter);
+            padding-left: calc(var(--gutter) / 2);
+          }
+          #page--news .layout-fifty.options_50-left_flush.type_50-overlay-false,
+          #page--news
+            .layout-fifty.options_50-left_margin.type_50-overlay-false {
+            padding: var(--gutter);
+            padding-right: calc(var(--gutter) / 2);
           }
         `}</style>
       </a>

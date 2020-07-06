@@ -13,7 +13,9 @@
     "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-player": "^2.5.0"
+    "react-id-swiper": "^4.0.0",
+    "react-player": "^2.5.0",
+    "swiper": "^6.0.0"
   },
   "scripts": {
     "dev": "next",

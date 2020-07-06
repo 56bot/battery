@@ -16,6 +16,11 @@ const ImageBlock = ({ image, width }) => (
         margin-bottom: calc(var(--gutter-medium) * 3);
         overflow: hidden;
       }
+
+      .image-project-section.mw-medium {
+        width: 80vw;
+        max-width: unset;
+      }
       .psr {
         position: relative;
         overflow: hidden;

@@ -162,10 +162,11 @@ p,
   margin-right: auto;
 }
 .mw-medium {
-  max-width: 1300px;
+  max-width: 80vw;
 }
 .mw-small {
-  max-width: 850px;
+  width: 60vw;
+  max-width: 800px;
 }
 
 .image {

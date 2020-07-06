@@ -1,7 +1,7 @@
 import Image from "components/Image";
 
 const ImageBlock = ({ image_1, image_2 }) => (
-  <section className={`image-project-section image mw-medium mxa`}>
+  <section className={`image-project-section image mxa`}>
     <div className="c12 x xw xjb  psr">
       <div className="image-a bgc-grey image-">
         <Image {...image_1} />
@@ -16,6 +16,8 @@ const ImageBlock = ({ image_1, image_2 }) => (
         padding: var(--gutter-medium);
         margin-bottom: calc(var(--gutter-medium) * 3);
         overflow: hidden;
+        width: 80vw;
+        max-width: unset;
       }
 
       .image- {

@@ -5,7 +5,7 @@ import { getRelatedPosts } from "api/wp";
 import Cover from "components/layout/Cover";
 import FeedItem from "components/feed/FeedItem";
 import Content from "./Content";
-import { BottomShareBar } from "components/news/Article";
+import { BottomShareBar, TopShareBar } from "components/news/Article";
 
 const RelatedArticles = ({ posts }) => {
   if (!posts || posts.length <= 0) return false;
@@ -83,6 +83,8 @@ const ProjectArticle = ({ acf, id }) => {
   return (
     <article key={id}>
       <Cover key={id + "cover"} meta_info={acf.meta_info} />
+
+      <TopShareBar />
 
       <Content content={acf.content} />
 

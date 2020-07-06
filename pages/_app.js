@@ -1,5 +1,6 @@
 import "../css/reset.css";
 import "../css/fonts.css";
+import "../css/swiper.css";
 import "../css/main.css";
 
 import "intersection-observer";

@@ -1,6 +1,7 @@
 import animateScrollTo from "animated-scroll-to";
 
 import LandingText from "./LandingText";
+import LandingSlideshow from "./LandingSlideshow";
 import FeedItem from "components/feed/FeedItem";
 
 export const feedHandler = (item, i) => {
@@ -64,8 +65,10 @@ const HomepageFeed = ({ content }) => {
 };
 
 const Homepage = ({ page }) => {
+  console.log(page, "PAge");
   return (
     <div id="page--homepage">
+      <LandingSlideshow posts={page.acf.landing_carousel} />
       <HomepageFeed content={page.acf.content} />
       <BackToTop />
     </div>

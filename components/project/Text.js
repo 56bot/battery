@@ -1,7 +1,11 @@
+import { SlideUp } from "components/animations";
+
 const Text = ({ text }) => (
   <section className={`text main-text image mw-small mxa`}>
     <div className="c12">
-      <span dangerouslySetInnerHTML={{ __html: text }} />
+      <SlideUp>
+        <span dangerouslySetInnerHTML={{ __html: text }} />
+      </SlideUp>
     </div>
 
     <style jsx>{`

@@ -35,6 +35,12 @@ const Cover = ({ meta_info }) => {
           position: relative;
         }
 
+        @media (max-width: 1000px) {
+          .cover {
+            padding-bottom: 55%;
+          }
+        }
+
         .image {
           opacity: 0.5;
         }
