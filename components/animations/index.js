@@ -46,7 +46,7 @@ export const ZoomOut = ({ children, attachToParent }) => (
             y: inView ? "0%" : "-5%",
             opacity: inView ? 1 : 0,
           }}
-          className={`zoom-out-el-${attachToParent} bgc-grey`}
+          className={`zoom-out-el-${attachToParent}`}
         >
           {children}
         </motion.div>

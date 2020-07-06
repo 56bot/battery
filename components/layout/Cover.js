@@ -1,9 +1,10 @@
 import Image from "components/Image";
 
 import { SlideUp } from "components/animations";
+import { CosmeticLink } from "components/Link";
 
 // note, this mimicks the Full Width Feed Item
-const Cover = ({ meta_info }) => {
+const Cover = ({ meta_info, cosmeticLink = false, smallTitle = false }) => {
   let image;
 
   // reverse these for the cover image
@@ -20,8 +21,13 @@ const Cover = ({ meta_info }) => {
         <SlideUp>
           <>
             <p className="fsE margin-bottom">{meta_info.subtitle}</p>
-            <h1 className="margin-bottom">{meta_info.title}</h1>
+            {smallTitle ? (
+              <h2 className="margin-bottom">{meta_info.title}</h2>
+            ) : (
+              <h1 className="margin-bottom">{meta_info.title}</h1>
+            )}
             <p className="fsE">{meta_info.description}</p>
+            {cosmeticLink && <CosmeticLink>{cosmeticLink}</CosmeticLink>}
           </>
         </SlideUp>
       </div>

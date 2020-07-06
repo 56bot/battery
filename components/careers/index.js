@@ -4,12 +4,16 @@ import Cover from "components/layout/Cover";
 import CareerList from "./CareerList";
 import { CosmeticLink } from "components/Link";
 
-const CTA = () => {
+export const CTA = ({
+  link = `mailto:hello@batteryagency.com`,
+  title = `Have a question?`,
+  linkText = `Get in touch`,
+}) => {
   return (
     <section className="career-cta">
-      <a href="mailto:hello@batteryagency.com" className="curp">
-        <h2 className="margin-bottom">Have a question?</h2>
-        <CosmeticLink>Get in touch</CosmeticLink>
+      <a href={link} className="curp">
+        <h2 className="margin-bottom">{title}</h2>
+        <CosmeticLink>{linkText}</CosmeticLink>
       </a>
 
       <style jsx>{`
