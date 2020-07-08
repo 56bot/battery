@@ -1,8 +1,21 @@
+import { useRef } from "react";
 import Swiper from "react-id-swiper";
 import FeedItem from "components/feed/FeedItem";
 
 const LandingSlideShow = ({ posts }) => {
-  console.log(posts);
+  const swiperRef = useRef(null);
+
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
 
   const params = {
     slidesPerView: 1.1,
@@ -12,7 +25,7 @@ const LandingSlideShow = ({ posts }) => {
   return (
     <section className="slideshow bgc-grey landing-ss main-parent">
       <div className="slideshow-parent mxa">
-        <Swiper {...params}>
+        <Swiper ref={swiperRef} {...params}>
           {posts.map((post, i) => {
             post.acf.meta_info.layout_50_type = false;
             post.acf.meta_info.layout_50_options = false;
@@ -32,9 +45,34 @@ const LandingSlideShow = ({ posts }) => {
             );
           })}
         </Swiper>
+
+        <div className="next arr" onClick={goNext} />
+        <div className="prev arr" onClick={goPrev} />
       </div>
 
       <style jsx>{`
+        .slideshow-parent {
+          position: relative;
+        }
+
+        .next {
+          right: 0;
+        }
+        .prev {
+          left: 0;
+        }
+        .arr {
+          position: absolute;
+          top: 0;
+          width: 9.2vw;
+          height: 100%;
+          background-color: black;
+          opacity: 0;
+          z-index: 2;
+          cursor: pointer;
+          transition: 0.3s ease-out opacity;
+        }
+
         .swiper-slide,
         .feed-wrapper {
           width: 100%;

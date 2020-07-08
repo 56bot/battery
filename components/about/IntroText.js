@@ -1,5 +1,4 @@
 import { SlideUp } from "components/animations";
-import SlideShow from "components/project/Slideshow";
 
 const IntroText = ({ our_story }) => {
   return (
