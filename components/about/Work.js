@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import { SlideUp } from "components/animations";
 
 import Link from "components/Link";
-import Image from "components/Image";
 
 const Slide = ({ image }) => (
   <div className="swiper-slide">
@@ -16,6 +15,55 @@ const Slide = ({ image }) => (
     `}</style>
   </div>
 );
+
+const SlideShow = ({
+  set,
+  slidesPerView,
+  spaceBetween,
+  speed,
+  i,
+  centred = false,
+}) => {
+  const ref = useRef(null);
+  const [runningInterval, setRunningInterval] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      let interval = setInterval(slideNext, 4000);
+      setRunningInterval(interval);
+
+      slideNext();
+    }, 1000);
+
+    return () => {
+      clearInterval(runningInterval);
+    };
+  }, []);
+
+  const slideNext = () => {
+    if (ref && ref.current && ref.current.swiper) {
+      ref.current.swiper.slideNext();
+    }
+  };
+
+  const params = {
+    slidesPerView,
+    spaceBetween,
+    speed,
+    centeredMode: centred,
+    loop: true,
+  };
+
+  return (
+    <div className={i}>
+      <Swiper ref={ref} {...params}>
+        {set.map((img, index) => (
+          <Slide image={img} key={i + index} />
+        ))}
+      </Swiper>
+    </div>
+  );
+};
 
 const Work = ({ work }) => {
   const { images, text } = work;
@@ -33,7 +81,6 @@ const Work = ({ work }) => {
     let tempStateTwo = [];
     let tempStateThree = [];
     images.map((img, i) => {
-      console.log(img, "IMG!!!");
       if (i % 3 === 0) tempStateOne.push(img);
       else if (i % 3 === 1) tempStateTwo.push(img);
       else if (i % 3 === 2) tempStateThree.push(img);
@@ -44,34 +91,28 @@ const Work = ({ work }) => {
     defineSetThree(tempStateThree);
   }, [images]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(swiperRefOne.current.swiper);
-    }, 1000);
-  }, []);
-
-  const paramsOne = {
-    slidesPerView: 2.45,
-    spaceBetween: "33%",
-    speed: 600,
-    autoplay: {
-      waitForTransition: false,
-    },
-    autoPlay: true,
-    loop: true,
-  };
-  const paramsTwo = {
-    slidesPerView: 3,
-    spaceBetween: "30.66%",
-    speed: 400,
-    loop: true,
-  };
-  const paramsThree = {
-    slidesPerView: 1.788,
-    speed: 900,
-    spaceBetween: "20%",
-    loop: true,
-  };
+  // const paramsOne = {
+  //   slidesPerView: 2.45,
+  //   spaceBetween: "33%",
+  //   speed: 600,
+  //   autoplay: {
+  //     waitForTransition: false,
+  //   },
+  //   autoPlay: true,
+  //   loop: true,
+  // };
+  // const paramsTwo = {
+  //   slidesPerView: 3,
+  //   spaceBetween: "30.66%",
+  //   speed: 400,
+  //   loop: true,
+  // };
+  // const paramsThree = {
+  //   slidesPerView: 1.788,
+  //   speed: 900,
+  //   spaceBetween: "20%",
+  //   loop: true,
+  // };
 
   return (
     <>
@@ -90,27 +131,36 @@ const Work = ({ work }) => {
       </section>
 
       <section className="work-carousel">
-        <div className="one">
-          <Swiper className="one" key={"one"} ref={swiperRefOne} {...paramsOne}>
-            {setOne &&
-              setOne.map((img, i) => <Slide image={img} key={i + "one"} />)}
-          </Swiper>
-        </div>
-        <div className="two">
-          <Swiper ref={swiperRefTwo} {...paramsTwo}>
-            {setTwo &&
-              setTwo.map((img, i) => <Slide image={img} key={i + "two"} />)}
-          </Swiper>
-        </div>
+        {setOne && (
+          <SlideShow
+            set={setOne}
+            i="one"
+            slidesPerView={2.3}
+            spaceBetween="33.33%"
+            speed={3600}
+          />
+        )}
+        {setTwo && (
+          <SlideShow
+            set={setTwo}
+            i="two"
+            centred
+            slidesPerView={3}
+            spaceBetween="30.3555%"
+            speed={3200}
+          />
+        )}
+        {setThree && (
+          <SlideShow
+            set={setThree}
+            i="three"
+            slidesPerView={1.78}
+            spaceBetween="20%"
+            speed={3800}
+          />
+        )}
 
-        <div className="three">
-          <Swiper ref={swiperRefThree} {...paramsThree}>
-            {setThree &&
-              setThree.map((img, i) => <Slide image={img} key={i + "Three"} />)}
-          </Swiper>
-        </div>
-
-        <style jsx>{`
+        <style jsx global>{`
           .one {
             z-index: 3;
             position: relative;
@@ -122,6 +172,10 @@ const Work = ({ work }) => {
           }
           .three {
             margin-top: -10vw;
+          }
+
+          .work-carousel .swiper-slide {
+            transform: translateX(-100px);
           }
         `}</style>
       </section>
