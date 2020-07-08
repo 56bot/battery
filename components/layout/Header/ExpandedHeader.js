@@ -147,6 +147,12 @@ const CloseButton = ({ setHeaderExpanded }) => {
         .close:hover {
           opacity: 0.6;
         }
+
+        @media (max-width: 750px) {
+          .close {
+            right: -10px;
+          }
+        }
       `}</style>
     </div>
   );
