@@ -82,7 +82,11 @@ const Footer = ({ setAdditionalSpaceForFooter }) => {
 
       <div id="bottom-bar" className="c12 x xw xjb">
         <p>© 2020 Battery. All Rights Reserved.</p>
-        <p>Privacy Policy</p>
+        <p>
+          <Link href="/terms" passHref>
+            <a>Privacy Policy</a>
+          </Link>
+        </p>
       </div>
       <style jsx>{`
         footer {
