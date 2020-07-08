@@ -7,10 +7,32 @@ import Link from "components/Link";
 
 const Slide = ({ image }) => (
   <div className="swiper-slide">
-    <img src={image.url} />
+    <figure
+      className="bgc-grey"
+      style={{ paddingBottom: (image.height / image.width) * 100 + "%" }}
+    >
+      <img src={image.url} alt={image.alt} />
+    </figure>
+
     <style jsx>{`
       .swiper-slide {
         overflow: hidden;
+      }
+
+      figure {
+        height: 0;
+        position: relative;
+        width: 100%;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0%;
+        height: 100%;
+        width: 100%;
+        object-position: center;
+        object-fit: contain;
       }
     `}</style>
   </div>
@@ -61,6 +83,12 @@ const SlideShow = ({
           <Slide image={img} key={i + index} />
         ))}
       </Swiper>
+
+      <style jsx>{`
+        div {
+          pointer-events: none;
+        }
+      `}</style>
     </div>
   );
 };
