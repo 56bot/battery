@@ -5,6 +5,7 @@ import { getRelatedPosts } from "api/wp";
 
 import Cover from "components/layout/Cover";
 import FeedItem from "components/feed/FeedItem";
+import TopShareBar from "./TopShareBar";
 
 const ArticleText = ({ text }) => {
   return (
@@ -14,6 +15,7 @@ const ArticleText = ({ text }) => {
       <style jsx>{`
         .main-text {
           padding: calc(var(--gutter-large) / 2) var(--gutter-medium);
+          padding-top: var(--gutter);
           margin: auto;
           min-height: 150px;
         }
@@ -149,7 +151,11 @@ const NewsArticle = ({ acf, id }) => {
   return (
     <article>
       <Cover meta_info={acf.meta_info} />
+
+      <TopShareBar />
+
       <ArticleText text={acf.text} />
+
       <BottomShareBar />
       {relatedArticles && <RelatedArticles posts={relatedArticles} />}
     </article>

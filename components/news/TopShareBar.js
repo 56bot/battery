@@ -16,7 +16,7 @@ const Copy = ({ url }) => {
   return (
     <div>
       <CopyToClipboard text={url} onCopy={copy}>
-        <div>{copied ? "Copied" : "Copy to clipboard"}</div>
+        <div>{copied ? "Copied" : "Copy"}</div>
       </CopyToClipboard>
 
       <style jsx>{`
@@ -57,6 +57,9 @@ export const TopShareBar = () => {
       </div>
 
       <div className={`share-items fsE expanded-${expanded}`}>
+        <div>
+          <Copy url={regularUrl} />
+        </div>
         <a
           target="_blank"
           rel="noreferrer noopenerer"
@@ -71,9 +74,6 @@ export const TopShareBar = () => {
         >
           Twitter
         </a>
-        <div>
-          <Copy url={regularUrl} />
-        </div>
       </div>
 
       <style jsx>{`
