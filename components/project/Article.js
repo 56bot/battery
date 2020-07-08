@@ -5,7 +5,8 @@ import { getRelatedPosts } from "api/wp";
 import Cover from "components/layout/Cover";
 import FeedItem from "components/feed/FeedItem";
 import Content from "./Content";
-import { BottomShareBar, TopShareBar } from "components/news/Article";
+import { BottomShareBar } from "components/news/Article";
+import TopShareBar from "components/news/TopShareBar";
 
 const RelatedArticles = ({ posts }) => {
   if (!posts || posts.length <= 0) return false;
@@ -56,8 +57,6 @@ const RelatedArticles = ({ posts }) => {
 };
 
 const ProjectArticle = ({ acf, id }) => {
-  console.log(acf, "ACF");
-
   const [relatedArticles, setRelatedArticles] = useState([]);
 
   useEffect(() => {

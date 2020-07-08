@@ -22,34 +22,6 @@ const ArticleText = ({ text }) => {
   );
 };
 
-export const TopShareBar = () => {
-  return (
-    <section className="mw-medium mxa">
-      <div className="social-share">
-        <img src="/images/share.svg" alt="Share Button" />
-      </div>
-
-      <style jsx>{`
-        section {
-          padding: var(--gutter-medium);
-          padding-bottom: 0;
-          margin-top: calc(var(--gutter-medium) * 1.56);
-          margin-bottom: calc(var(--gutter-medium * -2));
-          position: relative;
-        }
-
-        .social-share {
-          width: 35px;
-          position: absolute;
-          left: 20px;
-          cursor: pointer;
-          top: calc(var(--gutter-medium) * 2);
-        }
-      `}</style>
-    </section>
-  );
-};
-
 export const BottomShareBar = () => {
   const [encodedUrl, setEncodedUrl] = useState(false);
 
