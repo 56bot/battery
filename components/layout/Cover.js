@@ -52,10 +52,6 @@ const Cover = ({ meta_info, cosmeticLink = false, smallTitle = false }) => {
           }
         }
 
-        .image {
-          opacity: 0.5;
-        }
-
         .text {
           position: absolute;
           bottom: var(--gutter-medium);

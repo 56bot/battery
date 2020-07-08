@@ -118,10 +118,6 @@ const LandingSlideShow = ({ posts }) => {
           }
         }
 
-        .landing-ss a.feed-item.layout-full .image {
-          opacity: 0.5;
-        }
-
         .landing-ss .swiper-slide.swiper-slide-active .text {
           opacity: 1;
         }
@@ -129,7 +125,6 @@ const LandingSlideShow = ({ posts }) => {
         .landing-ss .swiper-slide .text {
           opacity: 0;
           transition: 0.3s ease-out opacity;
-          transition-delay: 0.4s;
         }
       `}</style>
     </section>

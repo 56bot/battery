@@ -65,7 +65,6 @@ const HomepageFeed = ({ content }) => {
 };
 
 const Homepage = ({ page }) => {
-  console.log(page, "PAge");
   return (
     <div id="page--homepage">
       <LandingSlideshow posts={page.acf.landing_carousel} />
