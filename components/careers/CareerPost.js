@@ -29,6 +29,19 @@ const CareerPost = ({ acf, title }) => {
           padding: var(--gutter);
           padding-bottom: calc(var(--gutter-medium) * 2);
         }
+
+        @media (max-width: 750px) {
+          .career-post {
+            padding: 0;
+            padding-top: 70px;
+            padding-bottom: 0;
+          }
+
+          .mw-small {
+            padding: var(--gutter);
+            padding-bottom: calc(var(--gutter-medium) * 1);
+          }
+        }
       `}</style>
     </section>
   );

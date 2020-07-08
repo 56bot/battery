@@ -110,6 +110,13 @@ const NavLink = ({
           a.selected-false {
             opacity: 0.5;
           }
+
+          @media (max-width: 750px) {
+            a {
+              width: 100%;
+              margin-bottom: var(--gutter);
+            }
+          }
         `}</style>
       </a>
     </Link>
@@ -222,6 +229,19 @@ const ExpandedHeader = ({ setHeaderExpanded, expanded }) => {
           z-index: 5;
           width: 100vw;
           overflow: hidden;
+        }
+
+        @media (max-width: 750px) {
+          .header-wrapper {
+            padding: var(--gutter);
+          }
+
+          #top-bar {
+            margin-bottom: var(--gutter-large);
+          }
+          #middle {
+            display: none;
+          }
         }
       `}</style>
     </motion.div>

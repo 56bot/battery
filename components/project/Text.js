@@ -14,6 +14,12 @@ const Text = ({ text }) => (
         padding-bottom: 0;
         margin-bottom: calc(var(--gutter-medium) * 2);
       }
+
+      @media (max-width: 750px) {
+        section {
+          margin-bottom: 0;
+        }
+      }
     `}</style>
   </section>
 );

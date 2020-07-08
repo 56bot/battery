@@ -112,6 +112,11 @@ const LandingSlideShow = ({ posts }) => {
         .landing-ss a.feed-item.layout-full {
           padding-bottom: 60%;
         }
+        @media (max-width: 800px) {
+          .landing-ss a.feed-item.layout-full {
+            padding-bottom: 80%;
+          }
+        }
 
         .landing-ss a.feed-item.layout-full .image {
           opacity: 0.5;

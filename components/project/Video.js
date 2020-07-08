@@ -68,12 +68,12 @@ const Video = ({ poster_image, video_file, video_url }) => {
       animate={{
         height: playing ? "100vh" : "42vw",
       }}
-      className="video-section"
+      className={`video-section playing-${playing}`}
     >
       <video ref={ref} loop src={src} />
 
       <div
-        className="play-btn"
+        className={`play-btn playing-${playing}`}
         style={{
           opacity: hoveringOverVideo ? "1" : "0",
           transform: `translate(${hoverPosition.x}px, ${hoverPosition.y}.px)`,
@@ -107,7 +107,7 @@ const Video = ({ poster_image, video_file, video_url }) => {
           left: 0;
           height: 100%;
           object-fit: contain;
-          obect-position: center;
+          object-position: center;
         }
 
         .play-btn {
@@ -120,6 +120,19 @@ const Video = ({ poster_image, video_file, video_url }) => {
           will-change: transform;
           pointer-events: none;
         }
+
+        @media (max-width: 750px) {
+          .play-btn {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%) !important;
+            opacity: 0 !important;
+          }
+          .play-btn.playing-false {
+            opacity: 1 !important;
+          }
+        }
       `}</style>
       <style jsx global>{`
         .video-section {
@@ -128,6 +141,12 @@ const Video = ({ poster_image, video_file, video_url }) => {
           background-color: black;
           overflow: hidden;
           margin-bottom: calc(var(--gutter-medium) * 3);
+        }
+
+        @media (max-width: 750px) {
+          .video-section {
+            margin-bottom: var(--gutter-medium);
+          }
         }
 
         .poster-image {

@@ -175,6 +175,50 @@ const FeedItem = ({ acf, post_type, slug }) => {
           .layout-fifty.type_50-overlay-true {
             width: 44%;
           }
+
+          @media (max-width: 1000px) {
+            .feed-item.layout-full {
+              padding-bottom: 55%;
+            }
+          }
+          @media (max-width: 700px) {
+            .feed-item.layout-full {
+              padding-bottom: 80%;
+            }
+
+            .layout-seventy,
+            .layout-fifty,
+            .layout-thirty {
+              width: 100%;
+            }
+
+            .layout-fifty.type_50-overlay-true {
+              width: 100%;
+            }
+            .layout-fifty {
+              padding: var(--gutter);
+            }
+
+            .layout-fifty.type_50-overlay-true {
+              padding: 0;
+            }
+            .layout-centred {
+              flex-wrap: wrap;
+            }
+            .layout-centred .image,
+            .layout-centred .text {
+              width: 100%;
+              padding: 0;
+            }
+
+            .layout-fifty.options_50-centred .text,
+            .layout-fifty.options_50-centred .image {
+              width: 100%;
+            }
+            .feed-item {
+              margin-bottom: var(--gutter);
+            }
+          }
         `}</style>
 
         <style jsx global>{`
@@ -183,13 +227,28 @@ const FeedItem = ({ acf, post_type, slug }) => {
           #page--news
             .layout-fifty.options_50-right_margin.type_50-overlay-false {
             padding: var(--gutter);
-            padding-left: calc(var(--gutter) / 2);
+            padding-left: calc(var(--gutter) / 1);
           }
           #page--news .layout-fifty.options_50-left_flush.type_50-overlay-false,
           #page--news
             .layout-fifty.options_50-left_margin.type_50-overlay-false {
             padding: var(--gutter);
-            padding-right: calc(var(--gutter) / 2);
+            padding-right: calc(var(--gutter) / 1);
+          }
+
+          @media (max-width: 750px) {
+            #page--news
+              .layout-fifty.options_50-right_margin.type_50-overlay-false {
+              padding: var(--gutter);
+              padding-left: var(--gutter);
+            }
+            #page--news
+              .layout-fifty.options_50-left_flush.type_50-overlay-false,
+            #page--news
+              .layout-fifty.options_50-left_margin.type_50-overlay-false {
+              padding: var(--gutter);
+              padding-right: var(--gutter);
+            }
           }
         `}</style>
       </a>

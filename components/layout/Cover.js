@@ -1,4 +1,4 @@
-import Image from "components/Image";
+import { RawImage } from "components/Image";
 
 import { SlideUp } from "components/animations";
 import { CosmeticLink } from "components/Link";
@@ -14,7 +14,7 @@ const Cover = ({ meta_info, cosmeticLink = false, smallTitle = false }) => {
   return (
     <section className="cover bgc-grey">
       <div className="image">
-        <Image attachedToParent {...image} />
+        <RawImage attachedToParent {...image} />
       </div>
 
       <div className="text c-white">
@@ -44,6 +44,11 @@ const Cover = ({ meta_info, cosmeticLink = false, smallTitle = false }) => {
         @media (max-width: 1000px) {
           .cover {
             padding-bottom: 55%;
+          }
+        }
+        @media (max-width: 700px) {
+          .cover {
+            padding-bottom: 80%;
           }
         }
 

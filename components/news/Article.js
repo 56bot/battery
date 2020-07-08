@@ -34,10 +34,10 @@ export const BottomShareBar = () => {
   return (
     <section className="mw-medium mxa">
       <div className="c12 x xw fsD bottom-share-bar ">
-        <div className="c6">
+        <div className="c6 share-title">
           <div>Share Via</div>
         </div>
-        <div className="c6 x xw">
+        <div className="c6 share-links x xw">
           <div className="c6">
             <a
               target="_blank"
@@ -76,6 +76,16 @@ export const BottomShareBar = () => {
           transition: 0.3s ease-out transform;
           display: inline-block;
           padding-left: 4px;
+        }
+
+        @media (max-width: 750px) {
+          .share-links {
+            width: 100%;
+          }
+
+          section {
+            padding: 0 var(--gutter);
+          }
         }
       `}</style>
     </section>
@@ -119,11 +129,27 @@ const RelatedArticles = ({ posts }) => {
         .related-articles {
           margin-bottom: calc(var(--gutter-large) / 2);
         }
+
+        @media (max-width: 750px) {
+          .related-articles.px2 {
+            padding-left: 0;
+            padding-right: 0;
+          }
+          .px2 {
+            padding: 0 var(--gutter);
+          }
+        }
       `}</style>
 
       <style jsx global>{`
         .related-articles a.layout-fifty {
           width: 48%;
+        }
+
+        @media (max-width: 750px) {
+          .related-articles a.layout-fifty {
+            width: 100%;
+          }
         }
       `}</style>
     </section>

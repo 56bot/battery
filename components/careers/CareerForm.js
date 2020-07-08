@@ -82,6 +82,12 @@ const Input = ({ label, name, type, changeFunction, value, submitted }) => {
           outline: none;
           border: 1px solid rgba(0, 0, 0, 1);
         }
+
+        @media (max-width: 750px) {
+          .input-row {
+            width: 100%;
+          }
+        }
       `}</style>
     </div>
   );

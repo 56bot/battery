@@ -117,6 +117,19 @@ export const TopShareBar = () => {
         .expanded-true {
           opacity: 1;
         }
+
+        @media (max-width: 800px) {
+          .share-items,
+          .social-share {
+            display: none;
+          }
+
+          section {
+            margin-top: 20px;
+            padding-top: 0;
+            margin-bottom: 20px;
+          }
+        }
       `}</style>
     </section>
   );

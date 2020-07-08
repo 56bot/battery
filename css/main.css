@@ -172,3 +172,84 @@ p,
 .image {
   overflow: hidden;
 }
+
+@media (max-width: 900px) {
+  html {
+    --grey: #2d2d2d;
+    --black: #000;
+    --white: #fff;
+    --sans: "Inter", "Helvetica Neue", "Helvetica", sans-serif;
+    --gutter: 16px;
+    --gutter-medium: 24px;
+    --gutter-large: 100px;
+  }
+
+  h2.nav-item {
+    font-size: 20px;
+  }
+
+  h2,
+  .fsB {
+    font-size: 22px;
+  }
+
+  .fsE {
+    font-size: 12px;
+  }
+
+  p,
+  .fsD,
+  .main-text li {
+    font-size: 16px;
+  }
+  h1,
+  .fsA {
+    font-size: 45px;
+  }
+
+  .mw-medium {
+    max-width: 90vw;
+  }
+  .mw-small {
+    max-width: 80vw;
+    width: 80vw;
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .mw-medium,
+  .mw-small {
+    max-width: unset;
+    width: 100%;
+  }
+
+  html {
+    --gutter-medium: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  .mw-medium,
+  .mw-small {
+    max-width: unset;
+    width: 100%;
+  }
+
+  html {
+    --gutter-medium: 20px;
+  }
+}
+
+@media (max-width: 750px) {
+  h2.nav-item {
+    font-size: 30px;
+  }
+}

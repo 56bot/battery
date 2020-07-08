@@ -11,6 +11,13 @@ const IntroText = ({ our_story }) => {
         section {
           padding: calc(var(--gutter-medium) * 3) var(--gutter);
         }
+
+        @media (max-width: 750px) {
+          section {
+            padding: calc(var(--gutter) * 2) var(--gutter);
+            padding-bottom: 0;
+          }
+        }
       `}</style>
     </section>
   );

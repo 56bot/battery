@@ -76,6 +76,13 @@ const SlideShow = ({ images }) => {
           padding: var(--gutter) 0;
           margin-bottom: calc(var(--gutter-medium) * 3);
         }
+
+        @media (max-width: 800px) {
+          .slideshow-parent {
+            padding-top: var(--gutter-medium);
+            margin-bottom: var(--gutter-medium);
+          }
+        }
       `}</style>
     </section>
   );

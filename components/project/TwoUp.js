@@ -31,6 +31,23 @@ const ImageBlock = ({ image_1, image_2 }) => (
         width: 100%;
         padding: 0;
       }
+
+      @media (max-width: 800px) {
+        .image-project-section {
+          width: 100vw;
+        }
+      }
+
+      @media (max-width: 750px) {
+        .image-project-section {
+          margin-bottom: 0;
+        }
+
+        .image- {
+          margin-bottom: var(--gutter-medium);
+          width: 100%;
+        }
+      }
     `}</style>
   </section>
 );

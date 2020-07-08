@@ -10,7 +10,7 @@ export const FooterNav = ({ black = false }) => {
       } `}
     >
       <Link href="/" passHref>
-        <a className={`row ${black ? "inverted" : "not-inverted"}`}>
+        <a className={`row logo-row ${black ? "inverted" : "not-inverted"}`}>
           <img
             className="logo"
             src="/images/battery-logo.png"
@@ -47,6 +47,22 @@ export const FooterNav = ({ black = false }) => {
         }
         .inverted {
           filter: invert(1);
+        }
+
+        @media (max-width: 800px) {
+          .logo-row {
+            display: none;
+          }
+
+          .row {
+            width: 33.33%;
+          }
+        }
+        @media (max-width: 750px) {
+          .row {
+            width: 100%;
+            margin-bottom: var(--gutter);
+          }
         }
       `}</style>
     </section>
@@ -109,6 +125,11 @@ const Footer = ({ setAdditionalSpaceForFooter }) => {
 
           padding-top: 20px;
           border-top: 1px solid white;
+        }
+        @media (max-width: 750px) {
+          #bottom-bar {
+            margin-top: var(--gutter);
+          }
         }
       `}</style>
     </footer>

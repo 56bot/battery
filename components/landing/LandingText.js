@@ -31,6 +31,13 @@ const LandingText = ({ text, learn_more_link }) => {
           margin: auto;
           max-width: 700px;
         }
+
+        @media (max-width: 800px) {
+          .landing-text {
+            margin-top: calc(var(--gutter-medium) * 1);
+            margin-bottom: calc(var(--gutter-medium) * 1);
+          }
+        }
       `}</style>
     </section>
   );

@@ -40,6 +40,13 @@ const Newspage = ({ page }) => {
         #page--news {
           margin-bottom: calc(var(--gutter-large) / 2);
         }
+
+        @media (max-width: 750px) {
+          .intro-text {
+            padding: calc(var(--gutter) * 2) var(--gutter);
+            padding-top: calc(var(--gutter) * 4);
+          }
+        }
       `}</style>
     </div>
   );

@@ -29,6 +29,18 @@ const ImageBlock = ({ image, width }) => (
         width: 100%;
         padding: 0;
       }
+
+      @media (max-width: 800px) {
+        .image-project-section.mw-medium {
+          width: 100vw;
+        }
+      }
+
+      @media (max-width: 750px) {
+        .image-project-section {
+          margin-bottom: var(--gutter-medium);
+        }
+      }
     `}</style>
   </section>
 );
