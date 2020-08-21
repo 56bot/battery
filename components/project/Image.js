@@ -1,6 +1,6 @@
 import Image from "components/Image";
 
-const ImageBlock = ({ image, width }) => (
+const ImageBlock = ({ image, width, caption }) => (
   <section
     className={`image-project-section image ${
       width === "medium" ? "mw-medium" : ""
@@ -10,7 +10,16 @@ const ImageBlock = ({ image, width }) => (
       <Image {...image} />
     </div>
 
+    {caption && (
+      <div className="px1 py1 caption image-caption">
+        <p dangerouslySetInnerHTML={{ __html: caption }} />
+      </div>
+    )}
+
     <style jsx>{`
+      .caption {
+        padding: 1rem;
+      }
       .image-project-section {
         padding: var(--gutter-medium);
         margin-bottom: calc(var(--gutter-medium) * 3);

@@ -15,9 +15,10 @@ const RelatedArticles = ({ posts }) => {
     <section className="related-project-post">
       <section className="x xw">
         {posts.map((post, i) => {
-          post.acf.meta_info.layout_50_type = false;
-          post.acf.meta_info.layout_50_options = false;
-          post.acf.meta_info.feed_layout = "full";
+          let options = {};
+          options.layout_50_type = false;
+          options.layout_50_options = false;
+          options.feed_layout = "full";
 
           if (i !== 0) return null;
 
@@ -26,12 +27,12 @@ const RelatedArticles = ({ posts }) => {
               key={i}
               acf={post.acf}
               post_type="projects"
+              options={options}
               slug={post.data.post_name}
             />
           );
         })}
       </section>
-      <style jsx global>{``}</style>
 
       <style jsx>{`
         .px2 {

@@ -102,15 +102,17 @@ const RelatedArticles = ({ posts }) => {
       </Link>
       <section className="related-articles x xw xjb px2">
         {posts.map((post, i) => {
-          post.acf.meta_info.layout_50_type = false;
-          post.acf.meta_info.layout_50_options = false;
-          post.acf.meta_info.feed_layout = "fifty";
+          let options = {};
+          options.layout_50_type = false;
+          options.layout_50_options = false;
+          options.feed_layout = "fifty";
 
           return (
             <FeedItem
               key={i}
               acf={post.acf}
               post_type="news"
+              options={options}
               slug={post.data.post_name}
             />
           );

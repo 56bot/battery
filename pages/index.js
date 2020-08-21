@@ -3,7 +3,7 @@ import { makeGenericRequest } from "api/wp";
 
 const Page = (props) => <Homepage {...props} />;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const page = await makeGenericRequest(`pages?slug=homepage`);
   return {
     props: {

@@ -1,13 +1,51 @@
-import { SlideUp } from "components/animations";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
-import Image from "components/Image";
+import { SlideUp } from "components/animations";
+import { ImageWithNoTransition } from "components/Image";
 
 const ClientImages = ({ images }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
   return (
-    <section>
+    <section className="x xw xjb">
       {images.map((img, i) => (
-        <Image noBackground {...img} key={i} />
+        <div ref={ref} className="client-image">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: inView ? 1 : 0,
+              y: inView ? 0 : 20,
+            }}
+            transition={{
+              delay: (i + 1) / 10,
+              duration: 0.6,
+            }}
+          >
+            <div className="image-container">
+              <ImageWithNoTransition noBackground {...img} key={i} />
+            </div>
+          </motion.div>
+        </div>
       ))}
+
+      <style jsx>{`
+        .client-image {
+          width: 25%;
+          padding: 6%;
+        }
+
+        .image-container {
+          position: relative;
+          width: 100%;
+          padding-bottom: 100%;
+        }
+      `}</style>
     </section>
   );
 };

@@ -1,5 +1,24 @@
 import { ZoomOut } from "components/animations";
 
+export const ImageWithNoTransition = ({ url, alt, sizes, height, width }) => {
+  return (
+    <>
+      <img height={height} width={width} loading="lazy" src={url} alt={alt} />
+
+      <style jsx>{`
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+      `}</style>
+    </>
+  );
+};
+
 export const RawImage = ({ url, alt, sizes, height, width }) => {
   return (
     <>

@@ -1,21 +1,72 @@
-import { RawImage } from "components/Image";
+import { useRef, useCallback, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
+import { RawImage } from "components/Image";
 import { SlideUp } from "components/animations";
 import { CosmeticLink } from "components/Link";
+
+export const RawVideo = ({ url }) => {
+  const ref = useRef();
+  const [inViewRef, inView] = useInView({
+    rootMargin: "-30%",
+  });
+
+  const setRefs = useCallback(
+    (node) => {
+      // Ref's from useRef needs to have the node assigned to `current`
+      ref.current = node;
+      // Callback refs, like the one from `useInView`, is a function that takes the node as an argument
+      inViewRef(node);
+    },
+    [inViewRef]
+  );
+
+  useEffect(() => {
+    if (inView && ref.current) {
+      ref.current.play();
+    } else if (!inView && ref.current) {
+      ref.current.pause();
+    }
+  }, [inView]);
+
+  return (
+    <div className="video">
+      <video ref={setRefs} src={url} muted loop playsInline />
+
+      <style jsx>{`
+        .video,
+        video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 // note, this mimicks the Full Width Feed Item
 const Cover = ({ meta_info, cosmeticLink = false, smallTitle = false }) => {
   let image;
+  let cover_video = meta_info.cover_video;
 
   // reverse these for the cover image
   if (meta_info.cover_image) image = meta_info.cover_image;
   else if (meta_info.thumbnail_image) image = meta_info.thumbnail_image;
 
   return (
-    <section className="cover bgc-grey">
-      <div className="image">
-        <RawImage attachedToParent {...image} />
-      </div>
+    <section className="cover">
+      {!cover_video || cover_video == "" ? (
+        <div className="image">
+          <RawImage attachedToParent {...image} />
+        </div>
+      ) : (
+        <RawVideo url={cover_video} />
+      )}
 
       <div className="text c-white">
         <SlideUp>

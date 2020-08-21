@@ -4,7 +4,7 @@ import Image, { RawImage } from "components/Image";
 import { CosmeticLink } from "components/Link";
 import { SlideUp } from "components/animations";
 
-const FeedItem = ({ acf, post_type, slug }) => {
+const FeedItem = ({ acf, post_type, slug, options }) => {
   const { meta_info } = acf;
 
   let image;
@@ -26,10 +26,10 @@ const FeedItem = ({ acf, post_type, slug }) => {
       passHref
     >
       <a
-        className={`feed-item layout-${meta_info.feed_layout} options_50-${meta_info.layout_50_options} type_50-overlay-${meta_info.layout_50_type}`}
+        className={`feed-item layout-${options.feed_layout} options_50-${options.layout_50_options} type_50-overlay-${options.layout_50_type}`}
       >
-        <div className="image bgc-grey">
-          {meta_info.feed_layout === "full" ? (
+        <div className="image">
+          {options.feed_layout === "full" ? (
             <RawImage {...image} />
           ) : (
             <Image {...image} />
@@ -40,7 +40,7 @@ const FeedItem = ({ acf, post_type, slug }) => {
           <SlideUp>
             <>
               <p className="fsE margin-bottom">{meta_info.subtitle}</p>
-              {meta_info.feed_layout == "full" ? (
+              {options.feed_layout == "full" ? (
                 <h1 className="margin-bottom">{meta_info.title}</h1>
               ) : (
                 <h2 className="margin-bottom">{meta_info.title}</h2>
@@ -56,7 +56,7 @@ const FeedItem = ({ acf, post_type, slug }) => {
         <style jsx>{`
           .feed-item.layout-full {
             height: 0;
-            background-color: var(--grey);
+
             padding-bottom: 40%;
             width: 100%;
             overflow: hidden;
@@ -78,7 +78,8 @@ const FeedItem = ({ acf, post_type, slug }) => {
             left: 0;
             width: 100%;
             color: white;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
           }
 
           .layout-full::after,
@@ -128,7 +129,8 @@ const FeedItem = ({ acf, post_type, slug }) => {
           .layout-fifty.options_50-centred .image,
           .layout-fifty.options_50-centred .text {
             width: 45vw;
-            margin: auto;
+            margin-left: auto;
+            margin-right: auto;
             max-width: unset;
           }
           .layout-centred .text {
@@ -143,7 +145,6 @@ const FeedItem = ({ acf, post_type, slug }) => {
           }
 
           .image {
-            background-color: var(--grey);
           }
 
           .feed-item {
@@ -184,6 +185,11 @@ const FeedItem = ({ acf, post_type, slug }) => {
           @media (max-width: 700px) {
             .feed-item.layout-full {
               padding-bottom: 80%;
+            }
+
+            .layout-seventy {
+              transform: none;
+              padding-left: var(--gutter);
             }
 
             .layout-seventy,

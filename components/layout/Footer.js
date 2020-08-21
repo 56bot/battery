@@ -21,7 +21,13 @@ export const FooterNav = ({ black = false }) => {
 
       <div className="row">
         <p className="fsE">
-          6565 West Sunset Blvd <br /> Hollywood, CA 90028
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.google.com/maps/place/BATTERY/@34.0975785,-118.3330592,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2b929bf8fbe19:0xdbccdcf1deddd237!8m2!3d34.0975741!4d-118.3308652?shorturl=1"
+          >
+            6515 West Sunset Blvd <br /> Hollywood, CA 90028
+          </a>
         </p>
       </div>
 
@@ -33,7 +39,7 @@ export const FooterNav = ({ black = false }) => {
 
       <div className="row">
         <p className="fsE">
-          New Project Inquiries Anson. <br /> Sowby@batteryagency.com
+          New Project Inquiries <br /> Anson.Sowby@batteryagency.com
         </p>
       </div>
 

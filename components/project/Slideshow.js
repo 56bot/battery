@@ -1,9 +1,31 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
 import Image from "components/Image";
 
 const SlideShow = ({ images }) => {
+  const [percent, setPercent] = useState(0);
+  const [baseVal, setBaseVal] = useState(52);
   const swiperRef = useRef(null);
+
+  useEffect(() => {
+    const handleSlideChange = () => {
+      if (swiperRef.current) {
+        const percent =
+          swiperRef.current.swiper.activeIndex / (images.length - 1);
+        setPercent(percent * 100);
+      }
+    };
+
+    setTimeout(() => {
+      swiperRef.current.swiper.on("slideChange", handleSlideChange);
+    }, 100);
+
+    return () => {
+      if (swiperRef.current) {
+        swiperRef.current.swiper.off("slideChange", handleSlideChange);
+      }
+    };
+  }, []);
 
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -23,21 +45,52 @@ const SlideShow = ({ images }) => {
     centeredSlides: true,
   };
 
+  const radius = baseVal;
+  const circumference = radius * 2 * Math.PI;
+  const offset = circumference - (percent / 100) * circumference;
+
   return (
     <section className="slideshow main-parent">
       <div className="slideshow-parent mxa">
         <Swiper ref={swiperRef} {...params}>
-          {images.map((img, i) => (
-            <div key={i} className="swiper-slide">
-              <Image {...img} />
-            </div>
-          ))}
+          {images.map((img, i) => {
+            console.log(img, "img!");
+            return (
+              <div key={i} className="swiper-slide">
+                <Image {...img} />
+                {img.caption && <div className="caption">{img.caption}</div>}
+              </div>
+            );
+          })}
         </Swiper>
+        <div className="progress">
+          <svg className="progress-ring" viewBox="0 0 120 120">
+            <circle
+              stroke="rgba(0,0,0,0.1)"
+              strokeWidth="13"
+              fill="transparent"
+              r={baseVal}
+              cx="60"
+              cy="60"
+            />
+            <circle
+              style={{
+                strokeDasharray: `${circumference} ${circumference}`,
+                strokeDashoffset: `${offset}`,
+              }}
+              stroke="black"
+              strokeWidth="13"
+              fill="transparent"
+              r={baseVal}
+              cx="60"
+              cy="60"
+            />
+          </svg>
+        </div>
 
         <div className="arr next" onClick={goNext} />
         <div className="arr prev" onClick={goPrev} />
       </div>
-
       <style jsx>{`
         .arr {
           position: absolute;
@@ -46,6 +99,25 @@ const SlideShow = ({ images }) => {
           width: 10vw;
           cursor: pointer;
           z-index: 2;
+        }
+
+        .caption {
+          padding: 1rem 0rem;
+        }
+
+        circle {
+          transition: 0.3s ease-out stroke-dashoffset;
+        }
+
+        .progress {
+          position: absolute;
+          bottom: calc(var(--gutter-medium) * -1);
+          right: var(--gutter);
+        }
+
+        svg {
+          width: 20px;
+          transform: rotate(-90deg);
         }
 
         .next {

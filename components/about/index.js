@@ -15,7 +15,7 @@ const About = ({ page }) => {
       <Work work={acf.work_cta} />
 
       <OurClients clients={acf.clients} />
-      <CareersCTA {...acf.careers_cta} />
+      {/* <CareersCTA {...acf.careers_cta} /> */}
       <ContactCTA />
     </section>
   );

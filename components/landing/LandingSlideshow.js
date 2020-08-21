@@ -1,8 +1,11 @@
-import { useRef } from "react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 import Swiper from "react-id-swiper";
-import FeedItem from "components/feed/FeedItem";
+// import FeedItem from "components/feed/FeedItem";
+import Cover from "components/layout/Cover";
 
 const LandingSlideShow = ({ posts }) => {
+  const [shifted, setShifted] = useState(false);
   const swiperRef = useRef(null);
 
   const goNext = () => {
@@ -18,13 +21,20 @@ const LandingSlideShow = ({ posts }) => {
   };
 
   const params = {
-    slidesPerView: 1.1,
+    slidesPerView: 1.07,
     spaceBetween: 0,
   };
 
+  const handleMouseEnter = () => {
+    setShifted(true);
+  };
+  const handleMouseLeave = () => {
+    setShifted(false);
+  };
+
   return (
-    <section className="slideshow bgc-grey landing-ss main-parent">
-      <div className="slideshow-parent mxa">
+    <section className="slideshow landing-ss main-parent">
+      <div className={`slideshow-parent mxa shifted-${shifted}`}>
         <Swiper ref={swiperRef} {...params}>
           {posts.map((post, i) => {
             post.acf.meta_info.layout_50_type = false;
@@ -32,23 +42,42 @@ const LandingSlideShow = ({ posts }) => {
             post.acf.meta_info.feed_layout = "full";
 
             return (
-              <div className="swiper-slide">
+              <div key={i} className="swiper-slide">
                 <div className="feed-wrapper">
-                  <FeedItem
-                    key={i}
-                    acf={post.acf}
-                    post_type={post.post_type}
-                    slug={post.post_name}
-                  />
+                  <Link
+                    href="/work/[project]"
+                    as={`/work/${post.post_name}`}
+                    passHref
+                  >
+                    <a>
+                      <Cover meta_info={post.acf.meta_info} />
+                    </a>
+                  </Link>
                 </div>
               </div>
             );
           })}
         </Swiper>
 
-        <div className="next arr" onClick={goNext} />
+        <div
+          className="next arr"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={goNext}
+        />
         <div className="prev arr" onClick={goPrev} />
       </div>
+
+      <style jsx global>{`
+        .shifted-true .swiper-slide {
+          transform: translateX(-5%);
+        }
+
+        .swiper-slide {
+          transition: 0.3s ease-out transform;
+          will-change: transform;
+        }
+      `}</style>
 
       <style jsx>{`
         .slideshow-parent {
@@ -109,11 +138,13 @@ const LandingSlideShow = ({ posts }) => {
           margin-bottom: 0 !important;
         }
 
-        .landing-ss a.feed-item.layout-full {
-          padding-bottom: 60%;
+        .landing-ss a.feed-item.layout-full,
+        .landing-ss .cover {
+          padding-bottom: 50%;
         }
         @media (max-width: 800px) {
-          .landing-ss a.feed-item.layout-full {
+          .landing-ss a.feed-item.layout-full,
+          .landing-ss .cover {
             padding-bottom: 80%;
           }
         }

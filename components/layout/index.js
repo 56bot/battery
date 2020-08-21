@@ -1,16 +1,34 @@
 import { useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import Header from "./Header";
 import Footer from "./Footer";
 
+const handleLayoutType = (route) => {
+  if (
+    route === "/work/[project]" ||
+    route === "/" ||
+    route === "/work" ||
+    route === "/news/[news]" ||
+    route === "/careers" ||
+    route === "/about"
+  )
+    return "enforce-black-bg";
+  else return "default";
+};
+
 const Layout = ({ children }) => {
+  const router = useRouter();
+
   const [additionalSpaceForFooter, setAdditionalSpaceForFooter] = useState(0);
 
   let mainStyle = { "--footer-height": `${additionalSpaceForFooter}px` };
 
+  const classToHandleHeader = handleLayoutType(router.route);
+
   return (
-    <main>
+    <main className={classToHandleHeader}>
       <Header />
 
       <Head>

@@ -7,6 +7,11 @@ import { FooterNav } from "../Footer";
 
 const navItems = [
   {
+    title: "Home",
+    link: "/",
+    text: "",
+  },
+  {
     title: "About",
     link: "/about",
     text:
@@ -23,11 +28,11 @@ const navItems = [
     link: "/news",
     text: "Our recent announcements",
   },
-  {
-    title: "Careers",
-    link: "/careers",
-    text: "Join the team",
-  },
+  // {
+  //   title: "Careers",
+  //   link: "/careers",
+  //   text: "Join the team",
+  // },
 ];
 
 const NavText = ({ text, title, hoveringOnNavItem }) => {
@@ -37,7 +42,7 @@ const NavText = ({ text, title, hoveringOnNavItem }) => {
   }
 
   return (
-    <div className={`selected-${selected}`}>
+    <div className={`selected-${selected} nav-text`}>
       <h2 className="nav-item">{text}</h2>
 
       <style jsx>{`
@@ -62,6 +67,10 @@ const NavText = ({ text, title, hoveringOnNavItem }) => {
           left: 0;
           width: 40vw;
           transform: translateY(-60%);
+        }
+
+        .nav-text:last-of-type h2 {
+          width: 20vw;
         }
       `}</style>
     </div>

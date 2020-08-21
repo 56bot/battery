@@ -7,16 +7,13 @@ export const SlideUp = ({ children }) => (
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           transition={{
-            type: "spring",
-            mass: 0.8,
-            damping: 100,
             delay: 0.2,
-            stiffness: 200,
+            duration: 0.6,
           }}
           animate={{
-            y: inView ? 0 : 50,
+            y: inView ? 0 : 30,
             opacity: inView ? 1 : 0,
           }}
         >
@@ -32,18 +29,13 @@ export const ZoomOut = ({ children, attachToParent }) => (
     {({ inView, ref, entry }) => (
       <span ref={ref}>
         <motion.div
-          initial={{ opacity: 0, scale: 1.1, y: "-5%" }}
+          initial={{ opacity: 0, scale: 1.05 }}
           transition={{
-            type: "spring",
-            mass: 0.8,
-            damping: 100,
-            delay: 0.4,
-            duration: 0.6,
-            stiffness: 100,
+            delay: 0.1,
+            duration: 1,
           }}
           animate={{
-            scale: inView ? 1.01 : 1.1,
-            y: inView ? "0%" : "-5%",
+            scale: inView ? 1.01 : 1.05,
             opacity: inView ? 1 : 0,
           }}
           className={`zoom-out-el-${attachToParent}`}

@@ -1,13 +1,23 @@
 import Image from "components/Image";
 
-const ImageBlock = ({ image_1, image_2 }) => (
+const ImageBlock = ({ image_1, image_2, caption_1, caption_2 }) => (
   <section className={`image-project-section image mxa`}>
     <div className="c12 x xw xjb  psr">
-      <div className="image-a bgc-grey image-">
+      <div className="image-a image-">
         <Image {...image_1} />
+        {caption_1 && (
+          <div className="px1 py1 caption image-caption">
+            <p dangerouslySetInnerHTML={{ __html: caption_1 }} />
+          </div>
+        )}
       </div>
-      <div className="image-b bgc-grey image-">
+      <div className="image-b image-">
         <Image {...image_2} />
+        {caption_2 && (
+          <div className="px1 py1 caption image-caption">
+            <p dangerouslySetInnerHTML={{ __html: caption_2 }} />
+          </div>
+        )}
       </div>
     </div>
 
@@ -18,6 +28,10 @@ const ImageBlock = ({ image_1, image_2 }) => (
         overflow: hidden;
         width: 80vw;
         max-width: unset;
+      }
+
+      .caption {
+        padding: 1rem;
       }
 
       .image- {

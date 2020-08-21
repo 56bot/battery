@@ -4,7 +4,43 @@ import LandingText from "./LandingText";
 import LandingSlideshow from "./LandingSlideshow";
 import FeedItem from "components/feed/FeedItem";
 
+const homepagFeedBuilder = (i, item) => {
+  let options = {
+    feed_layout: "",
+    layout_50_options: "",
+    layout_50_type: "",
+  };
+
+  if (i % 13 === 0 || i % 13 === 6) {
+    options.feed_layout = "centred";
+  } else if (i % 13 === 1) {
+    options.feed_layout = "seventy";
+  } else if (i % 13 === 2) {
+    options.feed_layout = "thirty";
+  } else if (i % 13 === 3 || i % 13 === 7 || i % 13 === 10) {
+    options.feed_layout = "full";
+  } else if (i % 13 === 4 || i % 13 === 11) {
+    options.feed_layout = "fifty";
+    options.layout_50_options = "centred";
+  } else if (i % 13 === 5) {
+    options.feed_layout = "fifty";
+    options.layout_50_options = "right_flush";
+    options.layout_50_type = "true";
+  } else if (i % 13 === 8) {
+    options.feed_layout = "fifty";
+    options.layout_50_options = "left_flush";
+    options.layout_50_type = "true";
+  } else if (i % 13 === 9 || i % 13 === 12) {
+    options.feed_layout = "fifty";
+    options.layout_50_options = "right_flush";
+  }
+
+  return options;
+};
+
 export const feedHandler = (item, i) => {
+  const options = homepagFeedBuilder(i, item);
+
   switch (item.row_type) {
     case "text":
       return <LandingText key={i} {...item} />;
@@ -14,6 +50,7 @@ export const feedHandler = (item, i) => {
           <FeedItem
             slug={item.item[0].post_name}
             key={i}
+            options={options}
             post_type={item.item[0].post_type}
             acf={item.item[0].acf}
           />
@@ -24,7 +61,7 @@ export const feedHandler = (item, i) => {
   }
 };
 
-const BackToTop = () => {
+export const BackToTop = () => {
   const scrollToTop = () => {
     animateScrollTo(0, {
       speed: 300,
@@ -40,7 +77,7 @@ const BackToTop = () => {
       <style jsx>{`
         div {
           padding: var(--gutter-large);
-          margin-bottom: var(--gutter-medium);
+          margin-top: calc(-2 * var(--gutter-medium));
         }
 
         h2 {
