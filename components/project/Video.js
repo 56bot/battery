@@ -59,6 +59,10 @@ const Video = ({
     }
   };
 
+  useEffect(() => {
+    console.log(hoverPosition);
+  }, [hoverPosition]);
+
   return (
     <>
       <motion.section
@@ -83,8 +87,10 @@ const Video = ({
         <div
           className={`play-btn playing-${playing}`}
           style={{
+            display: "inline-block",
             opacity: hoveringOverVideo ? "1" : "0",
-            transform: `translate(${hoverPosition.x}px, ${hoverPosition.y}.px)`,
+            transform: `translateX(${hoverPosition.x}px) translateY(${hoverPosition.y}px)`,
+            WebkitTransform: `translate(${hoverPosition.x}px, ${hoverPosition.y}.px)`,
           }}
         >
           <img src="/images/play-button.svg" alt="Play Button" />

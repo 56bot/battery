@@ -35,6 +35,10 @@ const workPageFeedBuilder = (i, item) => {
 export const feedHandler = (item, i) => {
   const options = workPageFeedBuilder(i, item);
 
+  console.log(item.acf.hidden_from_feed, "I!");
+
+  if (item.acf.hidden_from_feed) return null;
+
   return (
     <FeedItem
       key={i}

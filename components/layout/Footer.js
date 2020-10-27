@@ -26,20 +26,32 @@ export const FooterNav = ({ black = false }) => {
             rel="noopener noreferrer"
             href="https://www.google.com/maps/place/BATTERY/@34.0975785,-118.3330592,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2b929bf8fbe19:0xdbccdcf1deddd237!8m2!3d34.0975741!4d-118.3308652?shorturl=1"
           >
-            6515 West Sunset Blvd <br /> Hollywood, CA 90028
+            LA <br /> 6515 West Sunset Blvd <br /> Hollywood, CA 90028
           </a>
         </p>
       </div>
 
       <div className="row">
         <p className="fsE">
-          323.467.7267 <br /> info@batteryagency.com
+          <a
+            href="https://goo.gl/maps/9ZEaF3ERrEXWMksL8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TO <br /> 473 Adelaide St W <br /> Toronto, ON M5V 1T1
+          </a>
         </p>
       </div>
 
       <div className="row">
         <p className="fsE">
-          New Project Inquiries <br /> Anson.Sowby@batteryagency.com
+          <a
+            href="https://goo.gl/maps/jBVmR2LX8tTT6nXw9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SHG <br /> 887 Huaihai Zhong Road <br /> Shanghai, China
+          </a>
         </p>
       </div>
 

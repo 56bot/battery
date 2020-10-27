@@ -8,7 +8,7 @@ const LandingText = ({ text, learn_more_link }) => {
       <div className="text">
         <SlideUp>
           <>
-            <h2>{text}</h2>
+            <h2 dangerouslySetInnerHTML={{ __html: text }} />
             {learn_more_link && learn_more_link != "" && (
               <LinkButton href={learn_more_link}>Learn More</LinkButton>
             )}

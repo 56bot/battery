@@ -1,3 +1,6 @@
+import Router from "next/router";
+import withGA from "next-ga";
+
 import "../css/reset.css";
 import "../css/fonts.css";
 import "../css/swiper.css";
@@ -6,12 +9,11 @@ import "../css/main.css";
 import "intersection-observer";
 
 import Layout from "components/layout";
-
 import App, { Container } from "next/app";
 import React from "react";
 import { PageTransition } from "next-page-transitions";
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -69,3 +71,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withGA("UA-48498712-1", Router)(MyApp);

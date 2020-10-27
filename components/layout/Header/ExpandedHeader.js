@@ -15,7 +15,7 @@ const navItems = [
     title: "About",
     link: "/about",
     text:
-      "We partner with brands and create advertising that’s as sought-after as entertainment",
+      "We partner with brands to create advertising that's as sought-after as entertainment",
   },
   {
     title: "Work",

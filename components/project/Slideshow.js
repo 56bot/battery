@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
 import Image from "components/Image";
 
-const SlideShow = ({ images }) => {
+const SlideShow = ({ images, small_slideshow = false }) => {
   const [percent, setPercent] = useState(0);
   const [baseVal, setBaseVal] = useState(52);
   const swiperRef = useRef(null);
@@ -40,7 +40,7 @@ const SlideShow = ({ images }) => {
   };
 
   const params = {
-    slidesPerView: 1.3,
+    slidesPerView: small_slideshow ? 1 : 1.3,
     spaceBetween: 50,
     centeredSlides: true,
   };
@@ -50,7 +50,7 @@ const SlideShow = ({ images }) => {
   const offset = circumference - (percent / 100) * circumference;
 
   return (
-    <section className="slideshow main-parent">
+    <section className={`slideshow main-parent small-${small_slideshow}`}>
       <div className="slideshow-parent mxa">
         <Swiper ref={swiperRef} {...params}>
           {images.map((img, i) => {
@@ -101,6 +101,10 @@ const SlideShow = ({ images }) => {
           z-index: 2;
         }
 
+        .small-true .arr {
+          width: 50%;
+        }
+
         .caption {
           padding: 1rem 0rem;
         }
@@ -122,9 +126,11 @@ const SlideShow = ({ images }) => {
 
         .next {
           right: 0;
+          cursor: e-resize;
         }
         .prev {
           left: 0;
+          cursor: w-resize;
         }
 
         .slideshow-parent {
@@ -133,6 +139,11 @@ const SlideShow = ({ images }) => {
         .main-parent {
           width: 100vw;
           overflow: hidden;
+        }
+
+        .main-parent.small-true {
+          max-width: 700px;
+          margin: auto;
         }
         .swiper-slide:active {
           cursor: grabbing;

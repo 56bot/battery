@@ -1,6 +1,6 @@
 import fetch from "isomorphic-unfetch";
 
-const API_BASE = `https://1234.56.digital/battery/wp-json/wp/v2`;
+const API_BASE = `https://admin.batteryagency.com/wp-json/wp/v2`;
 
 export const makeGenericRequest = async (route) => {
   try {

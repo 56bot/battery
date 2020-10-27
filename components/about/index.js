@@ -12,10 +12,10 @@ const About = ({ page }) => {
     <section id="page--about">
       <Cover meta_info={acf.meta_info} />
       <IntroText our_story={acf.our_story} />
+      <CareersCTA {...acf.careers_cta} />
       <Work work={acf.work_cta} />
 
       <OurClients clients={acf.clients} />
-      {/* <CareersCTA {...acf.careers_cta} /> */}
       <ContactCTA />
     </section>
   );
