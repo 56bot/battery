@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import SEO from "../SEO";
 
 const handleLayoutType = (route) => {
   if (
@@ -18,7 +19,7 @@ const handleLayoutType = (route) => {
   else return "default";
 };
 
-const Layout = ({ children }) => {
+const Layout = (props) => {
   const router = useRouter();
 
   const [additionalSpaceForFooter, setAdditionalSpaceForFooter] = useState(0);
@@ -38,14 +39,7 @@ const Layout = ({ children }) => {
           Near Me | Game Marketing in LA | Sports Advertising in Hollywood | Ad
           Agencies Specializing in Financial Services
         </title>
-        Battery Los Angeles - An Ad Age Agency of the Year | One of the Leading
-        Advertising Agencies in Los Angeles, CA | Top Creative Agency Near Me |
-        Game Marketing in LA | Sports Advertising in Hollywood | Ad Agencies
-        Specializing in Financial ServicesBattery Los Angeles - An Ad Age Agency
-        of the Year | One of the Leading Advertising Agencies in Los Angeles, CA
-        | Top Creative Agency Near Me | Game Marketing in LA | Sports
-        Advertising in Hollywood | Ad Agencies Specializing in Financial
-        Services
+
         <link
           rel="icon"
           type="image/png"
@@ -53,9 +47,10 @@ const Layout = ({ children }) => {
           href="https://batteryagency.com/wp-content/uploads/fbrfg/favicon-32x32.png"
         ></link>
       </Head>
+      {props.page && props.page.acf && <SEO acf={props.page.acf} />}
 
       <div style={mainStyle} id="content">
-        {children}
+        {props.children}
       </div>
 
       <Footer setAdditionalSpaceForFooter={setAdditionalSpaceForFooter} />

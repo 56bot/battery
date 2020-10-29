@@ -27,7 +27,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     return (
-      <Layout>
+      <Layout {...pageProps}>
         <PageTransition
           timeout={300}
           skipInitialTransition
