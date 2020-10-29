@@ -2,6 +2,7 @@ import FeedItem from "components/feed/FeedItem";
 import { BackToTop } from "components/landing";
 
 import { SlideUp } from "components/animations";
+import SEO from "components/SEO";
 
 const newsPageFeedBuilder = (i, item) => {
   let options = {
@@ -58,6 +59,8 @@ const Newspage = ({ page }) => {
 
   return (
     <div id="page--news">
+      <SEO acf={{ seo_title: "News - Battery Agency" }} />
+
       <div className="intro-text tac">
         <SlideUp>
           <h1>What we’re up to</h1>

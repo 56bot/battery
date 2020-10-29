@@ -47,7 +47,9 @@ const Layout = (props) => {
           href="https://batteryagency.com/wp-content/uploads/fbrfg/favicon-32x32.png"
         ></link>
       </Head>
-      {props.page && props.page.acf && <SEO acf={props.page.acf} />}
+      {props.page && props.page.acf && (
+        <SEO page={props.page} acf={props.page.acf} />
+      )}
 
       <div style={mainStyle} id="content">
         {props.children}

@@ -1,5 +1,6 @@
 import FeedItem from "components/feed/FeedItem";
 import { BackToTop } from "components/landing";
+import SEO from "components/SEO";
 
 const workPageFeedBuilder = (i, item) => {
   let options = {
@@ -65,6 +66,7 @@ const Workpage = ({ page }) => {
 
   return (
     <div id="page--work">
+      <SEO acf={{ seo_title: "Work - Battery Agency" }} />
       <WorkFeed content={convertedArticles} />
       <BackToTop />
 

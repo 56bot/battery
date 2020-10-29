@@ -1,9 +1,12 @@
 import Head from "next/head";
 
-const SEO = ({ acf }) => {
+const SEO = ({ acf, page }) => {
   let title = "Battery Agency";
   let desc = "";
   let img = null;
+
+  console.log(page, "Page");
+  if (page && page.title) title = page.title.rendered + " – " + title;
 
   if (acf.seo_title) title = acf.seo_title;
   if (acf.seo_description) desc = acf.seo_description;

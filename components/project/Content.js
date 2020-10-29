@@ -5,8 +5,6 @@ import Video from "./Video";
 import Slideshow from "./Slideshow";
 
 export const contentHandler = (item, i) => {
-  console.log(item, "ITEM");
-
   switch (item.acf_fc_layout) {
     case "image_block":
       return <Image key={i} {...item} />;

@@ -54,7 +54,6 @@ const SlideShow = ({ images, small_slideshow = false }) => {
       <div className="slideshow-parent mxa">
         <Swiper ref={swiperRef} {...params}>
           {images.map((img, i) => {
-            console.log(img, "img!");
             return (
               <div key={i} className="swiper-slide">
                 <Image {...img} />
