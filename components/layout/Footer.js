@@ -88,6 +88,10 @@ export const FooterNav = ({ black = false }) => {
           }
         }
         @media (max-width: 750px) {
+          .contact {
+            margin-bottom: 1rem;
+          }
+
           .row {
             width: 100%;
             margin-bottom: var(--gutter);
