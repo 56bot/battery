@@ -9,15 +9,20 @@ export const FooterNav = ({ black = false }) => {
         black ? "bgc-white c-black" : "bgc-black c-white"
       } `}
     >
-      <Link href="/" passHref>
-        <a className={`row logo-row ${black ? "inverted" : "not-inverted"}`}>
-          <img
-            className="logo"
-            src="/images/battery-logo.png"
-            alt="Battery Agency Logo"
-          />
+      <div>
+        <Link href="/" passHref>
+          <a className={`row logo-row ${black ? "inverted" : "not-inverted"}`}>
+            <img
+              className="logo"
+              src="/images/battery-logo.png"
+              alt="Battery Agency Logo"
+            />
+          </a>
+        </Link>
+        <a className="contact" href="mailto:hello@batteryagency.com">
+          Contact us: Hello@BatteryAgency.com
         </a>
-      </Link>
+      </div>
 
       <div className="row">
         <p className="fsE">
@@ -58,6 +63,12 @@ export const FooterNav = ({ black = false }) => {
       <style jsx>{`
         .logo {
           width: 100px;
+        }
+
+        .contact {
+          display: block;
+          padding-top: 1rem;
+          font-size: 0.8rem;
         }
 
         .row {
