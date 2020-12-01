@@ -157,6 +157,8 @@ const LandingSlideShow = ({ posts }) => {
           opacity: 0;
           transition: 0.3s ease-out opacity;
         }
+
+.landing-ss .swiper-slide:last-of-type .text {opacity:1}
       `}</style>
     </section>
   );
